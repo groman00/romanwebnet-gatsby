@@ -12,7 +12,7 @@ Not sponsored by Anheuser-Busch but would like to be.
 
 ## Ingredients
 * 1 Glass of Ice
-* 1.5oz shot Vodka or Gin
+* 1.5 oz or 44ml Vodka or Gin
 * Splash of Lime Juice (or Cranberry)
 * 1 Can of Hard Seltzer (any flavour)
 
