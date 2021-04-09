@@ -6,23 +6,12 @@
  */
 
 import React from 'react';
-// import { useStaticQuery, graphql } from "gatsby"
-
 import Header from './Header';
 import { HorizontalNavigation, VerticalNavigation } from './Navigation';
 import Footer from './Footer';
 import '../scss/main.scss';
 
 const Layout: React.FC = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
   return <>{children}</>;
 };
 
