@@ -5,7 +5,7 @@ categories: ["Recipes"]
 status: "published"
 ---
 
-Enjoy the Rebecca Siow Tonic for the SRT launch party!!!!!! What better way to celebrate the amazing SRT launch!!!
+Enjoy the Rebecca Siow Tonic for the SRT launch party! What better way to celebrate the amazing SRT launch!!!
 
 Not sponsored by Rebecca Siow but would like to be.
 <!-- excerpt end -->
