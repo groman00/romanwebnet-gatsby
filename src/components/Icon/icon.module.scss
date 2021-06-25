@@ -35,3 +35,11 @@
     width: 36px;
   }
 }
+
+.cocktails {
+  width: 23px;
+
+  @include media-tablet {
+    width: 36px;
+  }
+}

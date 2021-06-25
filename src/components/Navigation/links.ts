@@ -58,7 +58,7 @@ export default [
       title: 'Cocktails',
     },
     icon: {
-      symbol: 'recipes',
+      symbol: 'cocktails',
     },
   },
   {
