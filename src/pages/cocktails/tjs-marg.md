@@ -2,7 +2,7 @@
 title: 'TJS Marg'
 date: '2021-06-25'
 categories: ['Cocktails']
-status: 'draft'
+status: 'published'
 ---
 
 Easy and delicious margarita for any day.
@@ -14,3 +14,17 @@ Easy and delicious margarita for any day.
 - Casamigos Tequila
 - Ice
 - Trader Joes Jalepeno Limeade
+
+## Directions
+
+### Step 1
+
+Put ice and tequila in cup
+
+### Step 2
+
+Put limade in cup
+
+### Step 3
+
+enjoy
