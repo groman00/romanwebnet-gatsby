@@ -54,6 +54,15 @@ export default [
   },
   {
     root: {
+      href: '/cocktails',
+      title: 'Cocktails',
+    },
+    icon: {
+      symbol: 'cocktails',
+    },
+  },
+  {
+    root: {
       href: '/music',
       title: 'Music',
     },
