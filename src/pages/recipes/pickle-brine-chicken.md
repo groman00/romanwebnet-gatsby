@@ -13,17 +13,7 @@ Oven roasted split chicken breasts brined in pickle juice
 
 - 2-4 Organic Split Chicken Breasts
 - 24oz Pickle Juice
-- 1/2 to 1 tsp. each of 5 different spices. Any of these for example:
-  - Salt
-  - Pepper
-  - Cumin
-  - Coriander
-  - Garlic Powder
-  - Onion Powder
-  - Rosemary
-  - Thyme
-  - Paprika
-  - Chili
+- [Spice Mix Recipe](/recipes/spice-mix)
 
 ## Directions
 
