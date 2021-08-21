@@ -1,15 +1,15 @@
-body{
+body {
   font-family: $font-family-base;
   font-size: $font-md;
   line-height: $line-height-base;
   color: $gray-dark;
 }
 
-.sans-serif{
+.sans-serif {
   font-family: $font-family-sans-serif;
 }
 
-.serif{
+.serif {
   font-family: $font-family-serif;
 }
 
@@ -18,9 +18,9 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
   font-family: $font-family-sans-serif;
-  margin:0;
+  margin: 0;
   line-height: $line-height-heading;
 
   a {
@@ -29,40 +29,40 @@ h6{
 }
 
 h1,
-.h1{
+.h1 {
   font-size: $font-xxxl;
   font-weight: $font-normal;
 }
 
 h2,
-.h2{
+.h2 {
   font-size: $font-xxl;
   font-weight: $font-bold;
   margin-bottom: $spacer-md;
 }
 
 h3,
-.h3{
+.h3 {
   font-size: $font-lg;
   font-weight: $font-normal;
   margin-bottom: $spacer-md;
 }
 
 h4,
-.h4{
+.h4 {
   font-size: $font-md;
   font-weight: $font-bold;
   margin-bottom: $spacer-md;
 }
 
 h5,
-.h5{
+.h5 {
   font-size: $font-sm;
   font-weight: $font-normal;
 }
 
 h6,
-.h6{
+.h6 {
   font-size: $font-xs;
   font-weight: $font-normal;
 }
@@ -84,51 +84,47 @@ p {
 
 a {
   &,
-  &:visited{
-    text-decoration: none;
-  }
-
-  &,
-  &:visited{
+  &:visited {
     color: $gray-dark;
   }
 
   &.light,
-  &.light:visited{
+  &.light:visited {
     color: $gray-lightest;
-  }  
+  }
 
-  &:hover{
+  &,
+  &:visited,
+  &:hover {
     text-decoration: underline;
   }
 }
 
 @include media-tablet {
-
   body {
     font-size: $font-lg;
   }
 
   h2,
-  .h2{
+  .h2 {
     font-size: $font-xxl;
     margin-bottom: $spacer-lg;
   }
 
   h3,
-  .h3{
+  .h3 {
     font-size: $font-xl;
     margin-bottom: $spacer-lg;
   }
 
   h4,
-  .h4{
+  .h4 {
     font-size: $font-lg;
     margin-bottom: $spacer-lg;
   }
 
   h5,
-  .h5{
+  .h5 {
     font-size: $font-md;
   }
 }
