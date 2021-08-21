@@ -56,5 +56,5 @@ _by Lester Han, guest contributer_
 - The platonic ideal of fried rice is that each grain of rice is separated, when frying it shall flow like sand! This is so that each grain is coated with flavour and at no point should a mouthful of rice be bland white rice!
 - Use overnight rice. After a night of storage (covered with a lid or wrap) the starch in the rice would have absorbed the a lot of the moisture and dry up on the outside. When cooking we are adding moisture to it so it won't be too dry to eat!
 - When cooking the rice with a big spoon or spatula, never use the tip or the sharp end to press the rice. Use the flat part to flatten the rice gently or scoop it from the bottom and toss it up. This is so that we don't break the rice grains and release loose starch that can make the end result sticky, which can ruin the texture of the dish.
-- For more in-depth information on fried rice, please see this scene from the 1996 Hong Kong comedy film God of Cookery, https://youtu.be/YGdKis6m9oM?t=285
-- Here's another scene from the movie that features the Sorrowful Rice, sorry for the spoilers https://youtu.be/YGdKis6m9oM?t=4959
+- For more in-depth information on fried rice, <a href="https://youtu.be/SYVvJBe0Gy0?t=308" target="_blank">please see this scene from the 1996 Hong Kong comedy film God of Cookery (sry for the mando dub)</a>
+- Here's another scene from the movie that features <a href="https://youtu.be/SYVvJBe0Gy0?t=4974" target="_blank">the Sorrowful Rice (spoilers!)</a>
