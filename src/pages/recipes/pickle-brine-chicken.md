@@ -2,6 +2,7 @@
 title: 'Pickle Brine Chicken'
 date: '2021-06-05'
 categories: ['Recipes']
+tags: ['Chicken', 'Oven']
 status: 'published'
 ---
 

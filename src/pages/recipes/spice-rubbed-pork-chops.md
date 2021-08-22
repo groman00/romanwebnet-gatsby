@@ -2,6 +2,7 @@
 title: 'Spice Rubbed Pork Chops'
 date: '2020-07-14'
 categories: ['Recipes']
+tags: ['Pork', 'Oven', 'Grill']
 status: 'published'
 ---
 
