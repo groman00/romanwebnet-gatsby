@@ -22,7 +22,7 @@ Use a multi-cooker to create a savory chicken, potatoes, gravy dish in one pot. 
 - 1 tsp dried thyme
 - 1 tsp dried rosemary
 - Salt and pepper to taste
-- 2 tsp cornstarch mixed with 1 tbs {water, cream, or milk}
+- 2 tsp cornstarch mixed with 1 tbs water, cream, or milk
 - 1 tbs butter
 - Optional
   - 8 oz mushrooms
@@ -37,6 +37,6 @@ Use a multi-cooker to create a savory chicken, potatoes, gravy dish in one pot. 
 - Place the browned chicken breasts in the pot. Carefully add the tiny potatoes on top of the chicken. Turn off the saute feature.
 - Secure your pressure cooker lid to the pot. Select **pressure cook**, set to **high**, for **8 minutes**.
 - Instant-release pressure when cooking time expires.
-- Remove chicken breasts and potatoes from the pot and set on serving vessel(s). Add optional lemon slices.
+- Remove chicken breasts, potatoes, and onions from the pot and set on serving vessel(s). Add optional lemon slices.
 - Set the multi-cooker to **saute** and wait util the liquid is simmering. Add butter. Slowly pour small amounts of cornstarch into the liquid and stir. Repeat until desired gravy thickness. Pour gravy into serving vessle or on top of chicken and potatoes.
 
