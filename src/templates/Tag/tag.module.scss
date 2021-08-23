@@ -1,0 +1,52 @@
+@import '../../scss/helpers/variables';
+@import '../../scss/helpers/mixins';
+
+.article {
+  background-color: $white;
+
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: solid 1px $gray-lighter;
+    padding-top: 20px;
+  }
+
+  h3 {
+    font-weight: $font-bold;
+  }
+
+  h4 {
+    margin-top: $spacer-lg;
+    margin-bottom: $spacer-lg;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  li {
+    list-style: disc;
+    margin-left: 40px;
+
+    li {
+      list-style: circle;
+    }
+
+    &,
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  margin-bottom: 40px;
+}
+
+.breadcrumb-spacer {
+  margin: 0 10px;
+}

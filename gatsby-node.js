@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
@@ -10,8 +11,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode, basePath: 'pages' });
-    // console.log('13 slug:', slug);
-    // console.log('frontmatter: ', node.frontmatter.categories);
     createNodeField({
       node,
       name: 'slug',
@@ -24,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     query {
-      allMarkdownRemark(
+      postsRemark: allMarkdownRemark(
         filter: { frontmatter: { status: { eq: "published" } } }
       ) {
         edges {
@@ -39,33 +38,17 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `);
 
-  const tagStore = (() => {
-    const store = {};
+  const posts = result.data.postsRemark.edges;
 
-    return {
-      store,
-      add: (tag, slug) => {
-        if (store[tag]) {
-          store[tag].push(slug);
-        } else {
-          store[tag] = [slug];
-        }
-      },
-    };
-  })();
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    // console.log('40 node:', node.frontmatter.tags);
-
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach((tag) =>
-        tagStore.add(tag, node.fields.slug)
-      );
-    }
-
+  posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve('./src/templates/BlogPost/BlogPost.tsx'),
@@ -76,5 +59,16 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-  console.log('Tag Store', tagStore.store);
+
+  const tags = result.data.tagsGroup.group;
+
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${tag.fieldValue.replace(' ', '-').toLowerCase()}/`,
+      component: path.resolve('./src/templates/Tag/Tag.tsx'),
+      context: {
+        tag: tag.fieldValue,
+      },
+    });
+  });
 };
