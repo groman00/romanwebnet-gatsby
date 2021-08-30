@@ -2,6 +2,7 @@
 title: 'Instant Pot Salmon and Lentils'
 date: '2021-01-04'
 categories: ['Recipes']
+tags: ['Salmon', 'Instant Pot', 'Lentils']
 status: 'published'
 ---
 

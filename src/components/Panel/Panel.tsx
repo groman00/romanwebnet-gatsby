@@ -8,7 +8,7 @@ enum Theme {
 }
 
 interface Props {
-  theme: keyof typeof Theme;
+  theme?: keyof typeof Theme;
 }
 
 const Panel: React.FC<Props> = ({ children, theme = 'none' }) => (
