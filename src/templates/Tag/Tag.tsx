@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-// import { DefaultLayout as Layout } from '../../components/layout';
-// import Container from '../../components/Container';
-// import styles from './tag.module.scss';
-// import SEO from '../../components/seo';
+import Panel from '../../components/Panel';
+import Container from '../../components/Container';
+import Heading from '../../components/Heading';
+import { Card, CardList } from '../../components/Card';
 
 interface Post {
   frontmatter: { title: string };
@@ -21,26 +21,33 @@ const Tag = ({ pageContext, data }) => {
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
+
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields;
-          const { title } = node.frontmatter;
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
-      <Link to="/tags">All tags</Link>
-    </div>
+    <Panel>
+      <Container>
+        <Heading element="h1" theme="dark" text={tagHeader} />
+        <CardList>
+          {edges.map(
+            ({
+              node: {
+                excerpt,
+                fields: { slug },
+                frontmatter: { title },
+              },
+            }) => (
+              <Card
+                key={slug}
+                cta="View Recipe"
+                description={excerpt}
+                link={slug}
+                title={title}
+              />
+            )
+          )}
+        </CardList>
+        <Link to="/tags">All tags</Link>
+      </Container>
+    </Panel>
   );
 };
 
@@ -57,8 +64,10 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          excerpt
           frontmatter {
             title
+            date(formatString: "DD MMMM, YYYY")
           }
         }
       }

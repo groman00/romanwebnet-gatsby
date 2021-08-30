@@ -1,21 +1,26 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import Heading from '../../components/Heading';
+import Container from '../../components/Container';
+import Panel from '../../components/Panel';
 
 const Tags: React.FC = ({ data }) => {
-  const tags = data.allMarkdownRemark.group.map((t) => t.fieldValue);
+  const tags = data.allMarkdownRemark.group.map((tag) => tag.fieldValue);
   return (
-    <div>
-      <h1>Tags</h1>
-      <ul>
-        {tags.map((tag) => (
-          <li key="tag">
-            <Link to={`/tags/${tag.replace(' ', '-').toLowerCase()}`}>
-              {tag}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Panel>
+      <Container>
+        <Heading element="h1" theme="dark" text="Tags" />
+        <ul>
+          {tags.map((tag) => (
+            <li key="tag">
+              <Link to={`/tags/${tag.replace(' ', '-').toLowerCase()}`}>
+                {tag}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </Panel>
   );
 };
 

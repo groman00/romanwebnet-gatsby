@@ -32,7 +32,7 @@ const Repos: React.FC = () => {
     }
   `);
   return (
-    <Panel theme="light">
+    <Panel>
       <Container>
         <Heading element="h2" theme="dark" text={pageTitle} />
         <CardList>

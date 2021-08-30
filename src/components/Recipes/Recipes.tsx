@@ -46,7 +46,7 @@ const Recipes: React.FC = () => {
   `);
 
   return (
-    <Panel theme="light">
+    <Panel>
       <Container>
         <Heading element="h1" theme="dark" text="Recipes" />
         <CardList>
