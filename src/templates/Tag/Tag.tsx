@@ -3,21 +3,11 @@ import { graphql, Link } from 'gatsby';
 import Panel from '../../components/Panel';
 import Container from '../../components/Container';
 import Heading from '../../components/Heading';
-import { Card, CardList } from '../../components/Card';
-
-interface Post {
-  frontmatter: { title: string };
-  excerpt: string;
-  html: string;
-}
-
-interface TagProps {
-  data: { markdownRemark: Post };
-}
+import Recipes from '../../components/Recipes';
 
 const Tag = ({ pageContext, data }) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const { totalCount } = data.allMarkdownRemark;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
@@ -26,26 +16,8 @@ const Tag = ({ pageContext, data }) => {
     <Panel>
       <Container>
         <Heading element="h1" theme="dark" text={tagHeader} />
-        <CardList>
-          {edges.map(
-            ({
-              node: {
-                excerpt,
-                fields: { slug },
-                frontmatter: { title },
-              },
-            }) => (
-              <Card
-                key={slug}
-                cta="View Recipe"
-                description={excerpt}
-                link={slug}
-                title={title}
-              />
-            )
-          )}
-        </CardList>
-        <Link to="/tags">All tags</Link>
+        <Recipes markdownRemark={data.allMarkdownRemark} />
+        <Link to="/tags">All Tags</Link>
       </Container>
     </Panel>
   );
