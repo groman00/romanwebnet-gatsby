@@ -4,6 +4,8 @@ import Panel from '../../components/Panel';
 import Container from '../../components/Container';
 import Heading from '../../components/Heading';
 import Recipes from '../../components/Recipes';
+import SEO from '../../components/seo';
+import Layout from '../../components/layout';
 
 const Tag = ({ pageContext, data }) => {
   const { tag } = pageContext;
@@ -13,13 +15,16 @@ const Tag = ({ pageContext, data }) => {
   } tagged with "${tag}"`;
 
   return (
-    <Panel>
-      <Container>
-        <Heading element="h1" theme="dark" text={tagHeader} />
-        <Recipes markdownRemark={data.allMarkdownRemark} />
-        <Link to="/tags">All Tags</Link>
-      </Container>
-    </Panel>
+    <Layout>
+      <SEO title="Tags" />
+      <Panel>
+        <Container>
+          <Heading element="h1" theme="dark" text={tagHeader} />
+          <Recipes markdownRemark={data.allMarkdownRemark} />
+          <Link to="/tags">All Tags</Link>
+        </Container>
+      </Panel>
+    </Layout>
   );
 };
 
