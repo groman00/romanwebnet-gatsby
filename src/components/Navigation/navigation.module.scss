@@ -44,7 +44,14 @@ $transparent-black: rgba(0, 0, 0, 0.1);
 }
 
 .vertical-nav {
-  flex-direction: column;
+  @include container;
+
+  align-items: center;
+  height: calc(100% - #{$vertical-nav-height});
+}
+
+.vertical-nav-links {
+  flex: 1;
   padding: 0 $spacer-lg;
 
   .link {

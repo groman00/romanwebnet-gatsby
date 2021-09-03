@@ -6,7 +6,8 @@
   display: flex;
   justify-content: center;
   background-color: $black;
-  padding: $spacer-md 0;
+  height: $vertical-nav-height;
+  align-items: center;
 }
 
 .logo-text {

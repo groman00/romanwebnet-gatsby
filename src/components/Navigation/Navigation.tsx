@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './navigation.module.scss';
 import Icon from '../Icon';
 import links, { LinkItem } from './links';
-import Container from '../Container';
 
 const Navigation: React.FC<{ className?: string }> = ({
   children,
@@ -22,16 +21,16 @@ const Link: React.FC<LinkItem> = ({ children, icon, root }) => (
 );
 
 export const VerticalNavigation: React.FC = () => (
-  <Container>
-    <Navigation className={styles.verticalNav}>
+  <Navigation className={styles.verticalNav}>
+    <div className={styles.verticalNavLinks}>
       {links.map((link) => (
         <Link key={link.icon.symbol} {...link}>
           <span>{link.root.title}</span>
           <Icon className={styles.chevron} symbol="chevron" />
         </Link>
       ))}
-    </Navigation>
-  </Container>
+    </div>
+  </Navigation>
 );
 
 export const HorizontalNavigation: React.FC = () => (
