@@ -1,7 +1,5 @@
 import React from 'react';
-import { DefaultLayout as Layout } from '../../components/layout';
-import SEO from '../../components/seo';
-import MusicPlayer from '../../components/MusicPlayer';
+import { Layout, MusicPlayer, SEO } from '../../components';
 
 const MusicPage: React.FC = () => (
   <Layout>

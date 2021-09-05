@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { DefaultLayout as Layout } from '../../components/layout';
-import Container from '../../components/Container';
 import styles from './blogPost.module.scss';
-import SEO from '../../components/seo';
+import { Layout, Container, SEO } from '../../components';
 
 interface BreadCrumbProps {
   title: string;

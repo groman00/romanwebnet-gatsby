@@ -1,8 +1,5 @@
 import React from 'react';
-import { DefaultLayout as Layout } from '../../components/layout';
-import SEO from '../../components/seo';
-import Resume from '../../components/Resume';
-import Repos from '../../components/Repos';
+import { Layout, SEO, Resume, Repos } from '../../components';
 
 const AboutPage: React.FC = () => (
   <Layout>

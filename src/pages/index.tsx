@@ -1,6 +1,5 @@
 import React from 'react';
-import { HomeLayout as Layout } from '../components/layout';
-import SEO from '../components/seo';
+import { HomeLayout as Layout, SEO } from '../components';
 
 const IndexPage: React.FC = () => (
   <Layout>

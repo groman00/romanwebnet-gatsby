@@ -8,10 +8,9 @@
 import React from 'react';
 // import { useStaticQuery, graphql } from "gatsby"
 
-import Header from './Header';
-import { HorizontalNavigation, VerticalNavigation } from './Navigation';
-import Footer from './Footer';
-import '../scss/main.scss';
+import Header from '../Header';
+import { HorizontalNavigation, VerticalNavigation } from '../Navigation';
+import Footer from '../Footer';
 
 const Layout: React.FC = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -26,7 +25,7 @@ const Layout: React.FC = ({ children }) => {
   return <>{children}</>;
 };
 
-export const DefaultLayout: React.FC = ({ children }) => (
+const DefaultLayout: React.FC = ({ children }) => (
   <Layout>
     <Header />
     <main>{children}</main>

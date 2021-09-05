@@ -40,3 +40,5 @@ export const HorizontalNavigation: React.FC = () => (
     ))}
   </Navigation>
 );
+
+export default HorizontalNavigation;

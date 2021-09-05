@@ -1,11 +1,13 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import Panel from '../../components/Panel';
-import Container from '../../components/Container';
-import Heading from '../../components/Heading';
-import Recipes from '../../components/Recipes';
-import SEO from '../../components/seo';
-import Layout from '../../components/layout';
+import {
+  Panel,
+  Container,
+  Heading,
+  Recipes,
+  SEO,
+  Layout,
+} from '../../components';
 
 const Tag = ({ pageContext, data }) => {
   const { tag } = pageContext;

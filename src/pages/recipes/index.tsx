@@ -1,11 +1,13 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { DefaultLayout as Layout } from '../../components/layout';
-import SEO from '../../components/seo';
-import Recipes from '../../components/Recipes';
-import Panel from '../../components/Panel';
-import Container from '../../components/Container';
-import Heading from '../../components/Heading';
+import {
+  Layout,
+  SEO,
+  Recipes,
+  Container,
+  Heading,
+  Panel,
+} from '../../components';
 
 const RecipesPage: React.FC = () => {
   const data = useStaticQuery(graphql`

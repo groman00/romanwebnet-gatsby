@@ -1,10 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import Heading from '../../components/Heading';
-import Container from '../../components/Container';
-import Panel from '../../components/Panel';
-import Layout from '../../components/layout';
-import SEO from '../../components/seo';
+import { Heading, Container, Panel, Layout, SEO } from '../../components';
 
 const Tags: React.FC = ({ data }) => {
   const tags = data.allMarkdownRemark.group.map((tag) => tag.fieldValue);
