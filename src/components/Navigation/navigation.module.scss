@@ -9,6 +9,7 @@ $transparent-black: rgba(0, 0, 0, 0.1);
 }
 
 .link {
+  border: solid 1px $transparent-black;
   border-radius: 5px;
   transition: all $transition-speed-normal ease-in-out;
   padding: $spacer-md;
@@ -58,7 +59,6 @@ $transparent-black: rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     font-size: $font-xxl;
-    border: solid 1px $transparent-black;
     margin-bottom: $spacer-lg;
     margin-left: auto;
     margin-right: auto;
