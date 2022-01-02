@@ -41,4 +41,4 @@ Create your own spice mix that can be used for many recipes.
 
 ## Directions
 
-Mix into a mortar and pestle. Grind a few types. Rub generously over meat or fish before cooking.
+Mix into a mortar and pestle. Grind for a few seconds. Rub generously over meat or fish before cooking.
