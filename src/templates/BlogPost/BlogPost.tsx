@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Layout, Container, SEO } from '@components';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styles from './blogPost.module.scss';
 
 interface BreadCrumbProps {
@@ -16,7 +17,9 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ title }) => (
 );
 
 interface Post {
-  frontmatter: { title: string };
+  frontmatter: {
+    title: string;
+  };
   excerpt: string;
   html: string;
 }
@@ -27,7 +30,7 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
   const post = data.markdownRemark;
-  const { title } = post.frontmatter;
+  const { title, featuredImage } = post.frontmatter;
   return (
     <Layout>
       <SEO title={title} description={post.excerpt} />
@@ -35,6 +38,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
+          <GatsbyImage image={getImage(featuredImage)} alt="testing" />
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
@@ -48,6 +52,16 @@ export const query = graphql`
       html
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            gatsbyImageData(
+              layout: CONSTRAINED
+              # width: 200
+              # placeholder: BLURRED
+              # formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
       excerpt
     }
