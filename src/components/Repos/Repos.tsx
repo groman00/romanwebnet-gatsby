@@ -14,7 +14,7 @@ const Repos: React.FC = () => {
         },
       ],
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<GatsbyTypes.ReposQueryQuery>(graphql`
     query ReposQuery {
       allContentYaml(filter: { contentId: { eq: "repos" } }) {
         edges {
@@ -34,10 +34,10 @@ const Repos: React.FC = () => {
   return (
     <Panel>
       <Container>
-        <Heading element="h2" theme="dark" text={pageTitle} />
-        <CardList>
-          {items.map(
-            ({ slug, title, description, tags }: Record<string, string>) => (
+        {pageTitle && <Heading element="h2" theme="dark" text={pageTitle} />}
+        {items && items.length > 0 && (
+          <CardList>
+            {items.map(({ slug, title, description, tags }) => (
               <Card
                 key={slug}
                 cta="View on Github"
@@ -47,9 +47,9 @@ const Repos: React.FC = () => {
                 title={title}
                 external
               />
-            )
-          )}
-        </CardList>
+            ))}
+          </CardList>
+        )}
       </Container>
     </Panel>
   );

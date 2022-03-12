@@ -72,3 +72,30 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+// exports.onCreateWebpackConfig = ({
+//   stage,
+//   rules,
+//   loaders,
+//   plugins,
+//   actions,
+//   getConfig,
+// }) => {
+//   const config = getConfig();
+
+//   // actions.replaceWebpackConfig(config)
+
+//   if (process.env.NODE_ENV === 'development') {
+//     console.log('=====WEBPACK=====', config.plugins[0].constructor.name);
+//     console.log(process.env.NODE_ENV);
+//     // let IgnorePlugin = config.plugins.find(
+//     //   (plugin) => plugin.constructor.name === 'IgnorePlugin'
+//     // );
+
+//     // const fastRefresh = plugins.fastRefresh();
+//     // fastRefresh.options.exclude = [/node_modules/i, /__generated__/i];
+//     actions.setWebpackConfig({
+//       plugins: config.plugins,
+//     });
+//   }
+// };

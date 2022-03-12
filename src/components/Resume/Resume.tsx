@@ -14,7 +14,7 @@ const Resume: React.FC = () => {
         },
       ],
     },
-  } = useStaticQuery(graphql`
+  } = useStaticQuery<GatsbyTypes.JobsQueryQuery>(graphql`
     query JobsQuery {
       allContentYaml(filter: { contentId: { eq: "jobs" } }) {
         edges {

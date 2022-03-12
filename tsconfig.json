@@ -7,6 +7,10 @@
       "dom",
       "esnext"
     ],
+    "baseUrl": "./",
+    "paths": {
+      "@components": ["src/components"],
+    },
     "jsx": "preserve",
     "outDir": "./dist",
     "isolatedModules": true,

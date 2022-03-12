@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'Romanwebnet.com',
@@ -35,6 +37,21 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typegen',
+      options: {
+        outputPath: './types/__generated__/gatsby-types.d.ts',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-alias-imports',
+      options: {
+        alias: {
+          '@components': path.resolve(__dirname, 'src/components'),
+        },
+        extensions: [],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
