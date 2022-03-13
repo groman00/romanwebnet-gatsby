@@ -5,8 +5,8 @@ date: '2022-03-02'
 status: 'published'
 images:
   - ./files/test_image.jpg
-  - ./files/test_image.jpg
-  - ./files/test_image.jpg
+  - ./files/IMG_0021.jpg
+  - ./files/IMG_0039.jpg
   - ./files/test_image.jpg
 ---
 

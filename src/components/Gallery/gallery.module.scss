@@ -2,10 +2,29 @@
 @import '../../scss/helpers/mixins';
 
 .gallery {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.gallery-wrapper {
+  display: flex;
+  transition: transform ease-in-out 300ms;
 }
 
 .gatsby-image {
-  margin: 20px;
-  border: solid 3px slateblue;
-  padding: 20px;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  border: solid 2px green;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
