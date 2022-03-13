@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout, Container, SEO } from '@components';
+import { Layout, Container, SEO, Gallery } from '@components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styles from './blogPost.module.scss';
 
@@ -30,7 +30,7 @@ interface BlogPostProps {
 
 const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
   const post = data.markdownRemark;
-  const { title, featuredImage } = post.frontmatter;
+  const { title, images } = post.frontmatter;
   return (
     <Layout>
       <SEO title={title} description={post.excerpt} />
@@ -38,7 +38,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          <GatsbyImage image={getImage(featuredImage)} alt="testing" />
+          <Gallery images={images} />
+          {/* <GatsbyImage image={getImage(featuredImage)} alt="testing" /> */}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
@@ -52,7 +53,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        featuredImage {
+        images {
           childImageSharp {
             gatsbyImageData(
               layout: CONSTRAINED
