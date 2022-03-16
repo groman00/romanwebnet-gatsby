@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styles from './gallery.module.scss';
 
 const Gallery: React.FC = ({ images }) => {
   const [imageIndex, setImageIndex] = React.useState(0);
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  useEffect(() => {
+    const closeFunction = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', closeFunction);
+
+    return () => {
+      document.removeEventListener('keydown', closeFunction);
+    };
+  }, []);
 
   if (images.length === 0) {
     return null;
   }
 
-  return (
+  return isOpen ? (
     <div className={styles.gallery}>
       <div
         className={styles.galleryWrapper}
@@ -55,7 +69,18 @@ const Gallery: React.FC = ({ images }) => {
       >
         Next
       </button>
+      <button
+        className={styles.closeButton}
+        type="button"
+        onClick={() => setIsOpen(false)}
+      >
+        Close
+      </button>
     </div>
+  ) : (
+    <button type="button" onClick={() => setIsOpen(true)}>
+      Open
+    </button>
   );
 };
 

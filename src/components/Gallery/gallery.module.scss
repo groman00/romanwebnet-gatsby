@@ -21,14 +21,10 @@
   margin: 0;
   padding: 0;
   flex-shrink: 0;
-  border: solid 16px transparent;
 }
 
 .button {
   position: absolute;
-  top: 50%;
-  transform: translate3d(0, -50%, 0);
-  margin: 0px 32px;
   background-color: white;
   overflow: hidden;
   height: 48px;
@@ -36,9 +32,8 @@
   border-radius: 100%;
   border: none;
   color: white;
-  font-size: 32px;
   transition: opacity linear 300ms;
-  opacity: 0.3;
+  opacity: 0.15;
 
   &:before {
     position: absolute;
@@ -55,21 +50,45 @@
   }
 }
 
-.next-button {
-  @extend .button;
+@mixin arrow-button($direction) {
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  margin: 0px 32px;
 
-  right: 0;
+  @if $direction == left {
+    left: 0;
 
-  &:before {
-    content: '>';
+    &:before {
+      content: '<';
+    }
+  } @else if $direction == right {
+    right: 0;
+
+    &:before {
+      content: '>';
+    }
   }
 }
+
+.next-button {
+  @extend .button;
+  @include arrow-button('right');
+}
+
 .previous-button {
   @extend .button;
+  @include arrow-button('left');
+}
 
-  left: 0;
+.close-button {
+  @extend .button;
+
+  margin: 32px 32px 0 0;
+
+  right: 0;
+  top: 0;
 
   &:before {
-    content: '<';
+    content: 'x';
   }
 }
