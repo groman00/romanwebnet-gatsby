@@ -9,8 +9,6 @@ const Gallery: React.FC = ({ images }) => {
     return null;
   }
 
-  console.log(images, styles);
-
   return (
     <div className={styles.gallery}>
       <div
@@ -19,18 +17,33 @@ const Gallery: React.FC = ({ images }) => {
           transform: `translate3d(-${imageIndex * 100}vw, 0, 0)`,
         }}
       >
-        {images.map((image, i) => (
+        {images.map((image: any, i: number) => (
           <GatsbyImage
             className={styles.gatsbyImage}
             key={i}
             image={getImage(image)}
             alt="testing"
+            objectFit="contain"
           />
         ))}
       </div>
       <button
         type="button"
-        className={styles.button}
+        className={styles.previousButton}
+        onClick={() =>
+          setImageIndex((index) => {
+            if (index === 0) {
+              return images.length - 1;
+            }
+            return index - 1;
+          })
+        }
+      >
+        Previous
+      </button>
+      <button
+        type="button"
+        className={styles.nextButton}
         onClick={() =>
           setImageIndex((index) => {
             if (index === images.length - 1) {
