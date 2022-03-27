@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styles from './gallery.module.scss';
 
 const Gallery: React.FC = ({ images }) => {
-  const [imageIndex, setImageIndex] = React.useState(0);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const closeFunction = (e) => {
@@ -18,10 +18,6 @@ const Gallery: React.FC = ({ images }) => {
       document.removeEventListener('keydown', closeFunction);
     };
   }, []);
-
-  if (images.length === 0) {
-    return null;
-  }
 
   return isOpen ? (
     <div className={styles.gallery}>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Layout, Container, SEO, Gallery } from '@components';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styles from './blogPost.module.scss';
 
 interface BreadCrumbProps {
@@ -38,8 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          <Gallery images={images} />
-          {/* <GatsbyImage image={getImage(featuredImage)} alt="testing" /> */}
+          {images && <Gallery images={images} />}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
