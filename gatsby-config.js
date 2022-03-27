@@ -25,8 +25,9 @@ module.exports = {
         excerpt_separator: '<!-- excerpt end -->',
       },
     },
-    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

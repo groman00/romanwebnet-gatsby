@@ -14,6 +14,7 @@ import Recipes from './Recipes';
 import Repos from './Repos';
 import Resume from './Resume';
 import SEO from './SEO';
+import Gallery from './Gallery';
 
 export {
   BusinessCard,
@@ -21,6 +22,7 @@ export {
   CardList,
   Container,
   Footer,
+  Gallery,
   Header,
   Heading,
   HomeLayout,
