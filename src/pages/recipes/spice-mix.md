@@ -13,10 +13,12 @@ Create your own spice mix that can be used for many recipes.
 
 1 tsp each of 5 different dried spices.
 
-#### For Chicken, Pork and Beef
+#### For Chicken, Pork, Beef and Seafood
 
 - Salt
 - Black Pepper
+- Ginger
+- Red Pepper
 
 #### For Chicken, Pork and Beef
 
@@ -27,17 +29,13 @@ Create your own spice mix that can be used for many recipes.
 - Rosemary
 - Thyme
 - Paprika
-- Chili
-- Ginger
-- Red Pepper
+- Chili Powder
 
 #### Seafood
 
 - Dill
 - Old Bay
 - Parsely
-- Ginger
-- Red Pepper
 
 ## Directions
 

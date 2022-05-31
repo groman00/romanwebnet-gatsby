@@ -1,0 +1,38 @@
+---
+title: 'Quick Pickled Vegetables'
+date: '2022-05-30'
+categories: ['Recipes']
+tags: ['Pickled', 'Vegetables']
+status: 'published'
+---
+
+Easy pickle brine for your favorite raw vegetables
+
+<!-- excerpt end -->
+
+## Ingredients
+
+- 2 16 oz jars full of vegetables, sliced thinly with a mandolin
+- 2 cups white or apple cider vinegar
+- 2 cups water
+- 1/3 cup white sugar
+- 2 tablespoons sea salt
+- Optional spices, for example
+  - 1 tsp of peppercorns
+  - Smashed garlic cloves
+  - Dill weed
+  - Red pepper
+
+## Directions
+
+### Step 1
+
+Place vinegar, water and selected spices in a medium sauce pan. Heat over medium/high heat. Add sugar and salt. Slowly stir until suger is dissolved. Once dissolved, turn heat off and let cool for a few minutes.
+
+### Step 2
+
+Fill the glass jars with sliced vegetables. Slowly pour pickling mixture into both jars, fully covering the vegetables. Cover jars tightly with lids. Let cool on the counter.
+
+### Step 3
+
+Move pickles to the fridge for at least an hour. Keep in fridge for up to 2 weeks.
