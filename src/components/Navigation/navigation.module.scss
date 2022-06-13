@@ -85,6 +85,9 @@ $transparent-black: rgba(0, 0, 0, 0.1);
 }
 
 .scattered-nav {
+  // Todo: account for banner height
+  height: 100vh;
+
   .link {
     display: flex;
     flex-direction: column;
