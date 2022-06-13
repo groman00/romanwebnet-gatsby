@@ -102,35 +102,35 @@ $transparent-black: rgba(0, 0, 0, 0.1);
   /* About */
   .link:nth-child(1) {
     transform: translate3d(-160%, -150%, 0);
-    height: 270px;
-    width: 240px;
+    height: 25vh;
+    width: 18vw;
   }
 
   /* Github */
   .link:nth-child(2) {
     transform: translate3d(0%, -150%, 0);
-    height: 250px;
-    width: 270px;
+    height: 23vh;
+    width: 22vw;
   }
 
   /* LinkedIn */
   .link:nth-child(3) {
     transform: translate3d(-185%, 0%, 0);
-    height: 300px;
-    width: 280px;
+    height: 28vh;
+    width: 20vw;
   }
 
   /* Recipes */
   .link:nth-child(4) {
     transform: translate3d(110%, -10%, 0);
-    height: 430px;
-    width: 200px;
+    height: 42vh;
+    width: 16vw;
   }
 
   /* Music */
   .link:nth-child(5) {
     transform: translate3d(-52%, -40%, 0);
-    height: 210px;
-    width: 410px;
+    height: 18vh;
+    width: 28vw;
   }
 }
