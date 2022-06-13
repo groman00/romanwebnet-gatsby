@@ -41,4 +41,14 @@ export const HorizontalNavigation: React.FC = () => (
   </Navigation>
 );
 
+export const ScatteredNavigation: React.FC = () => (
+  <Navigation className={styles.scatteredNav}>
+    {links.map((link) => (
+      <Link key={link.icon.symbol} {...link}>
+        <span>{link.root.title}</span>
+      </Link>
+    ))}
+  </Navigation>
+);
+
 export default HorizontalNavigation;

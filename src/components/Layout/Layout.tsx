@@ -9,7 +9,11 @@ import React from 'react';
 // import { useStaticQuery, graphql } from "gatsby"
 
 import Header from '../Header';
-import { HorizontalNavigation, VerticalNavigation } from '../Navigation';
+import {
+  HorizontalNavigation,
+  ScatteredNavigation,
+  VerticalNavigation,
+} from '../Navigation';
 import Footer from '../Footer';
 
 const Layout: React.FC = ({ children }) => {
@@ -37,7 +41,8 @@ const DefaultLayout: React.FC = ({ children }) => (
 export const HomeLayout: React.FC = ({ children }) => (
   <Layout>
     <Header logoTag="h1" />
-    <VerticalNavigation />
+    {/* <VerticalNavigation /> */}
+    <ScatteredNavigation />
     <main>{children}</main>
   </Layout>
 );
