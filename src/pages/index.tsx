@@ -3,7 +3,12 @@ import { HomeLayout as Layout, SEO } from '../components';
 
 const IndexPage: React.FC = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO
+      title="Home"
+      bodyAttributes={{
+        style: 'overflow: hidden',
+      }}
+    />
     {/*
     https://www.gatsbyjs.org/docs/adding-analytics/
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112401659-1"></script>
