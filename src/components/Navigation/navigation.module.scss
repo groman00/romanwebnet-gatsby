@@ -84,56 +84,137 @@ $transparent-black: rgba(0, 0, 0, 0.1);
   }
 }
 
+$link-1-delay: 0s;
+$link-2-delay: 0s;
+$link-3-delay: 0s;
+$link-4-delay: 0s;
+$link-5-delay: 0s;
+
+$link-1-transition-duration: 0.3s;
+$link-2-transition-duration: 1s;
+$link-3-transition-duration: 0.5s;
+$link-4-transition-duration: 0.7s;
+$link-5-transition-duration: 0.9s;
+
+// https://www.guillaumetomasi.com/
 .scattered-nav {
-  // Todo: account for banner height
-  height: 100vh;
+  height: calc(100vh - #{$vertical-nav-height});
+  // transition: transform linear 1s;
+  justify-content: center;
+  align-items: center;
+
+  // perspective: 300px;
 
   .link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    // top: 50%;
+    // left: 50%;
+    border-radius: 100%;
     font-size: $font-xxl;
+    transition: transform linear 1s;
+    height: 200px;
+    width: 200px;
 
     > :first-child {
       flex: 1;
     }
   }
 
-  /* About */
-  .link:nth-child(1) {
-    transform: translate3d(-160%, -150%, 0);
-    height: 25vh;
-    width: 18vw;
+  .link-container {
+    position: absolute;
   }
+
+  /* About */
+  .link-container:nth-child(1) {
+    //   // transform: translate3d(-160%, -150%, 0);
+    transform: translate3d(0, 0, 0);
+    //   // height: 25vh;
+    //   // width: 18vw;
+
+    .link {
+      transition-duration: $link-1-transition-duration;
+      transition-delay: $link-1-delay;
+    }
+  }
+
+  // &.animate {
+  //   .link:nth-child(1) {
+  //     transform: translate3d(-100%, 0, 0);
+  //   }
+  // }
 
   /* Github */
-  .link:nth-child(2) {
-    transform: translate3d(0%, -150%, 0);
-    height: 23vh;
-    width: 22vw;
+  .link-container:nth-child(2) {
+    // transform: translate3d(0%, -150%, 0);
+    transform: translate3d(-100%, -100%, 0);
+    // height: 23vh;
+    // width: 22vw;
+
+    .link {
+      transition-duration: $link-2-transition-duration;
+      transition-delay: $link-2-delay;
+    }
   }
+
+  // &.animate {
+  //   .link:nth-child(2) {
+  //     transform: translate3d(0, -100%, 0);
+  //     transition-delay: 0.5s;
+  //   }
+  // }
 
   /* LinkedIn */
-  .link:nth-child(3) {
-    transform: translate3d(-185%, 0%, 0);
-    height: 28vh;
-    width: 20vw;
+  .link-container:nth-child(3) {
+    // transform: translate3d(-185%, 0%, 0);
+    transform: translate3d(-100%, 100%, 0);
+    // height: 28vh;
+    // width: 20vw;
+
+    .link {
+      transition-duration: $link-3-transition-duration;
+      transition-delay: $link-3-delay;
+    }
   }
+
+  // &.animate {
+  //   .link:nth-child(3) {
+  //     transform: translate3d(0, 0, 0);
+  //     transition-delay: 1s;
+  //   }
+  // }
 
   /* Recipes */
-  .link:nth-child(4) {
-    transform: translate3d(110%, -10%, 0);
-    height: 42vh;
-    width: 16vw;
+  .link-container:nth-child(4) {
+    // transform: translate3d(110%, -10%, 0);
+    transform: translate3d(100%, -100%, 0);
+    // height: 42vh;
+    // width: 16vw;
+
+    .link {
+      transition-duration: $link-4-transition-duration;
+      transition-delay: $link-4-delay;
+    }
   }
 
+  // &.animate {
+  //   .link:nth-child(4) {
+  //     transform: translate3d(100%, 0, 0);
+  //     transition-delay: 1.5s;
+  //   }
+  // }
+
   /* Music */
-  .link:nth-child(5) {
-    transform: translate3d(-52%, -40%, 0);
-    height: 18vh;
-    width: 28vw;
+  .link-container:nth-child(5) {
+    // transform: translate3d(-52%, -40%, 0);
+    transform: translate3d(100%, 100%, 0);
+    // height: 18vh;
+    // width: 28vw;
+
+    .link {
+      transition-duration: $link-5-transition-duration;
+      transition-delay: $link-5-delay;
+    }
   }
 }

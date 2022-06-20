@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { arrayOf } from 'prop-types';
 import styles from './navigation.module.scss';
 import Icon from '../Icon';
 import links, { LinkItem } from './links';
@@ -13,12 +14,13 @@ const Navigation: React.FC<{ className?: string }> = ({
   </nav>
 );
 
-const Link: React.FC<LinkItem> = ({ children, icon, root }) => (
+const Link: React.FC<LinkItem> = ({ children, icon, root, ...props }) => (
   <a
     key={icon.symbol}
     className={styles.link}
     rel="noopener noreferrer"
     {...root}
+    {...props}
   >
     <Icon {...icon} />
     {children}
@@ -46,7 +48,7 @@ export const HorizontalNavigation: React.FC = () => (
   </Navigation>
 );
 
-export const ScatteredNavigation: React.FC = () => {
+const useScattered = () => {
   const [startX, setStartX] = useState<number>();
   const [startY, setStartY] = useState<number>();
   const [clientX, setClientX] = useState<number>();
@@ -75,20 +77,45 @@ export const ScatteredNavigation: React.FC = () => {
     }
   }, [startX, startY, clientX, clientY]);
 
-  // console.log(startX);
-  // console.log(offset);
+  return { offsetX, offsetY };
+};
 
+// const initialTransforms = links.map((_, i) => 'translate3d(-100%, 100%, 0)');
+
+export const ScatteredNavigation: React.FC = () => {
+  const { offsetX, offsetY } = useScattered();
+  // console.log(offsetX);
+  // console.log(offsetY);
+  const [className, setClassName] = useState('');
+  // const [transforms, setTransforms] = useState([]);
+
+  // useEffect(() => {
+  //   setClassName(styles.animate);
+  // }, []);
+
+  // const transforms = () => {
+  //   return links.map(() => {
+
+  //   })
+  // };
   return (
     <Navigation
-      className={styles.scatteredNav}
-      style={{
-        transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
-      }}
+      className={`${styles.scatteredNav} ${className}`}
+      // style={{
+      //   transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
+      // }}
     >
       {links.map((link) => (
-        <Link key={link.icon.symbol} {...link}>
-          <span>{link.root.title}</span>
-        </Link>
+        <div key={link.icon.symbol} className={`${styles.linkContainer}`}>
+          <Link
+            {...link}
+            style={{
+              transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
+            }}
+          >
+            <span>{link.root.title}</span>
+          </Link>
+        </div>
       ))}
     </Navigation>
   );
