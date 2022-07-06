@@ -42,4 +42,9 @@ Add remaining ingredients to the pot and cover with lid. Set instant pot to pres
 
 When done cooking, allow instant pot to natural release for 2 minutes then quick release pressure. Stir and Enjoy!
 
-Try on top of rice, corn bread or flour tortillas.
+Suggestions:
+
+- Try on top of rice, corn bread or flour tortillas
+- Top with plain lowfat greek yogurt
+- Garnish with chives
+- Spice it up with your favorite hot sauce
