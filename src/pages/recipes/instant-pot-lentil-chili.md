@@ -1,0 +1,45 @@
+---
+title: 'Instant Pot Lentil Chili'
+date: '2022-07-06'
+categories: ['Recipes']
+tags: ['Instant Pot', 'Lentils']
+status: 'published'
+---
+
+Quick and easy meatless chili cooked in your instant pot.
+
+<!-- excerpt end -->
+
+## Ingredients
+
+- 1 cup brown or green lentils, rinsed well
+- 1.5 cups of cold water
+- 1.25 oz packet of chili seasoning
+- 14.5 oz can of diced tomatoes
+- 4.5 oz can of green chilis
+- 15.5 oz can of kidney or cannellini beans
+- 1 small yellow onion
+- 1 medium to small green bell pepper
+- 2 cloves garlic
+
+## Directions
+
+### Step 1
+
+Roughly dice onion and pepper. Smash garlic and roughly chop.
+
+Open all canned and packaged ingredients before heating the instant pot. Drain liquid from the canned beans.
+
+### Step 2
+
+Set instant pot to sauté mode on high. Once heated, cover the bottom of the pot with oil and add onions and peppers. Sauté for 2 minutes, then add garlic. Stir frequently until just starting to brown. Turn off instant pot.
+
+### Step 3
+
+Add remaining ingredients to the pot and cover with lid. Set instant pot to pressure cook on high for 10 minutes.
+
+### Step 4
+
+When done cooking, allow instant pot to natural release for 2 minutes then quick release pressure. Stir and Enjoy!
+
+Try on top of rice, corn bread or flour tortillas.

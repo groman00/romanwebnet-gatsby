@@ -3,6 +3,7 @@ title: 'Multi-Cooker Lemon Chicken, Potatoes, and Gravy'
 date: '2021-08-22'
 categories: ['Recipes']
 status: 'published'
+tags: ['Instant Pot']
 ---
 
 Use a multi-cooker to create a savory chicken, potatoes, gravy dish in one pot. A quick, easy meal when paired with your favorite veg.
