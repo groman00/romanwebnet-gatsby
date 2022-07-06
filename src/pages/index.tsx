@@ -6,7 +6,7 @@ const IndexPage: React.FC = () => (
     <SEO
       title="Home"
       bodyAttributes={{
-        style: 'overflow: hidden',
+        class: 'overflow-hidden',
       }}
     />
     {/*

@@ -1,4 +1,9 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  ReactHTMLElement,
+} from 'react';
 import { arrayOf } from 'prop-types';
 import styles from './navigation.module.scss';
 import Icon from '../Icon';
@@ -14,14 +19,10 @@ const Navigation: React.FC<{ className?: string }> = ({
   </nav>
 );
 
-const Link: React.FC<LinkItem> = ({ children, icon, root, ...props }) => (
-  <a
-    key={icon.symbol}
-    className={styles.link}
-    rel="noopener noreferrer"
-    {...root}
-    {...props}
-  >
+const Link: React.FC<
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkItem
+> = ({ children, icon, root, style }) => (
+  <a className={styles.link} rel="noopener noreferrer" style={style} {...root}>
     <Icon {...icon} />
     {children}
   </a>
