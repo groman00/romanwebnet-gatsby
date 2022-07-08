@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import * as styles from './container.module.scss';
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   element?: React.ElementType;
 }
 
-const Container: React.FC<Props> = ({
+const Container: React.FC<PropsWithChildren & Props> = ({
   children,
   className = '',
   element = 'div',

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-const CardList: React.FC = ({ children }) => (
+const CardList: React.FC<PropsWithChildren> = ({ children }) => (
   <div>{children}</div>
 );
 

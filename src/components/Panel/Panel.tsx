@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 enum Theme {
   none = 'bg-transparent',
@@ -11,7 +11,7 @@ interface Props {
   theme?: keyof typeof Theme;
 }
 
-const Panel: React.FC<Props> = ({ children, theme = 'none' }) => (
+const Panel: React.FC<PropsWithChildren & Props> = ({ children, theme = 'none' }) => (
   <section className={Theme[theme]}>{children}</section>
 );
 
