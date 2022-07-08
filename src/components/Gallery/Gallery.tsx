@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import styles from './gallery.module.scss';
+import * as styles from './gallery.module.scss';
 
 const Gallery: React.FC = ({ images }) => {
   const [imageIndex, setImageIndex] = useState(0);

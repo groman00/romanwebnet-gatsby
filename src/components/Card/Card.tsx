@@ -1,5 +1,5 @@
 import React, { Children } from 'react';
-import styles from './card.module.scss';
+import * as styles from './card.module.scss';
 
 interface Props {
   cta: string;

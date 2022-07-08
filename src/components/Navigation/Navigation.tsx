@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './navigation.module.scss';
+import * as styles from './navigation.module.scss';
 import Icon from '../Icon';
 import links, { LinkItem } from './links';
 
