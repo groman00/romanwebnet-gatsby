@@ -30,6 +30,7 @@ interface BlogPostProps {
 const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
   const post = data.markdownRemark;
   const { title, images } = post.frontmatter;
+  // console.log(images)
   return (
     <Layout>
       <SEO title={title} description={post.excerpt} />
@@ -37,7 +38,11 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          {images && <Gallery images={images} />}
+          {images && <Gallery imageItems={images.map(img => ({
+            original: img.childImageSharp.gatsbyImageData.images.fallback.src,
+            thumbnail: img.childImageSharp.gatsbyImageData.images.fallback.src,
+          }))
+} />}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
