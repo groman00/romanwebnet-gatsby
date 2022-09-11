@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './header.module.scss';
+import * as styles from './header.module.scss';
 
 type HeaderProps = {
   logoTag?: keyof JSX.IntrinsicElements;

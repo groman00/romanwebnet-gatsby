@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './icon.module.scss';
+import * as styles from './icon.module.scss';
 
 interface Props {
   symbol: string;

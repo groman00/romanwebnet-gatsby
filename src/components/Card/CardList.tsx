@@ -1,8 +1,7 @@
-import React from 'react';
-import styles from './card.module.scss';
+import React, { PropsWithChildren } from 'react';
 
-const CardList: React.FC = ({ children }) => (
-  <div className={styles.cardList}>{children}</div>
+const CardList: React.FC<PropsWithChildren> = ({ children }) => (
+  <div>{children}</div>
 );
 
 export default CardList;

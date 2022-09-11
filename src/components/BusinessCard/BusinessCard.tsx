@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './businessCard.module.scss';
+import * as styles from './businessCard.module.scss';
 import Icon from '../Icon';
 
 const BusinessCard: React.FC = () => (

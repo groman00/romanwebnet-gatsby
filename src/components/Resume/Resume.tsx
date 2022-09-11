@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import styles from './resume.module.scss';
+import * as styles from './resume.module.scss';
 import Panel from '../Panel';
 import Container from '../Container';
 import Heading from '../Heading';
@@ -114,7 +114,7 @@ const Resume: React.FC = () => {
               <div className={styles.experienceItem} key={id}>
                 <div className={styles.experienceItemLeft}>
                   <h4>{title}</h4>
-                  <h5 className={styles.italic}>
+                  <h5>
                     {company} - {location}
                   </h5>
                   <p>{blurb}</p>
