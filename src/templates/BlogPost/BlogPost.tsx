@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          {images && <Gallery files={images}  />}
+          {images && <Gallery files={images} slug={post.fields.slug} />}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
@@ -49,18 +49,22 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
-        images {
-          childImageSharp {
-            gatsbyImageData(
-              layout: CONSTRAINED
-              # width: 200
-              # placeholder: BLURRED
-              # formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
+        images
+        # {
+        #   childImageSharp {
+        #     gatsbyImageData(
+        #       layout: CONSTRAINED
+        #       # width: 200
+        #       # placeholder: BLURRED
+        #       # formats: [AUTO, WEBP, AVIF]
+        #     )
+        #   }
+        # }
       }
       excerpt
     }

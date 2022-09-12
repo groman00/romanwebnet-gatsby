@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react';
 import * as styles from './gallery.module.scss';
 import 'react-image-gallery/styles/scss/image-gallery.scss';
 import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
-import { getImage } from 'gatsby-plugin-image';
+
+const host = 'https://d2src2azjjzz54.cloudfront.net/static-images'
 
 interface Props {
   files: GatsbyTypes.Maybe<GatsbyTypes.File>[]
+  slug: string
 }
 
-const Gallery: React.FC<Props> = ({ files }) => {
-  console.log(files.map(i => i));
+const Gallery: React.FC<Props> = ({ files, slug }) => {
   const [imageItems, setImageItems] = useState<ReactImageGalleryItem[]>([])
+  const path = slug.split('/').slice(-2).join('');
 
   useEffect(() => {
-    setImageItems(files.map(file => {
-      const image = getImage(file);
+    setImageItems(files?.map(file => {
+      const imageSrc = `${host}/${path}/${file}`;
       return {
-        original: image.images.fallback.src,
-        thumbnail: image.images.fallback.src,
+        original: imageSrc,
+        thumbnail: imageSrc
       }
   }))}, [files]);
 
