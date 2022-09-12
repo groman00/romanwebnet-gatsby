@@ -15,22 +15,21 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ title }) => (
   </div>
 );
 
-interface Post {
-  frontmatter: {
-    title: string;
-  };
-  excerpt: string;
-  html: string;
-}
+// interface Post {
+//   frontmatter: {
+//     title: string;
+//   };
+//   excerpt: string;
+//   html: string;
+// }
 
 interface BlogPostProps {
-  data: { markdownRemark: Post };
+  data: { markdownRemark: GatsbyTypes.MarkdownRemark };
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
   const post = data.markdownRemark;
-  const { title, images } = post.frontmatter;
-  // console.log(images)
+  const { title, images } = post.frontmatter!;
   return (
     <Layout>
       <SEO title={title} description={post.excerpt} />
@@ -38,11 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          {images && <Gallery imageItems={images.map(img => ({
-            original: img.childImageSharp.gatsbyImageData.images.fallback.src,
-            thumbnail: img.childImageSharp.gatsbyImageData.images.fallback.src,
-          }))
-} />}
+          {images && <Gallery files={images}  />}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
