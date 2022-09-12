@@ -1,83 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from './gallery.module.scss';
+import 'react-image-gallery/styles/scss/image-gallery.scss';
+import ImageGallery, { ReactImageGalleryItem } from 'react-image-gallery';
 
-const Gallery: React.FC = ({ images }) => {
-  const [imageIndex, setImageIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+const host = 'https://d2src2azjjzz54.cloudfront.net/static-images'
+
+interface Props {
+  files: GatsbyTypes.Maybe<GatsbyTypes.File>[]
+  slug: string
+}
+
+const Gallery: React.FC<Props> = ({ files, slug }) => {
+  const [imageItems, setImageItems] = useState<ReactImageGalleryItem[]>([])
+  const path = slug.split('/').slice(-2).join('');
 
   useEffect(() => {
-    const closeFunction = (e) => {
-      if (e.key === 'Escape') {
-        setIsOpen(false);
+    setImageItems(files?.map(file => {
+      const imageSrc = `${host}/${path}/${file}`;
+      return {
+        original: imageSrc,
+        thumbnail: imageSrc
       }
-    };
-    document.addEventListener('keydown', closeFunction);
+  }))}, [files]);
 
-    return () => {
-      document.removeEventListener('keydown', closeFunction);
-    };
-  }, []);
-
-  return isOpen ? (
-    <div className={styles.gallery}>
-      <div
-        className={styles.galleryWrapper}
-        style={{
-          transform: `translate3d(-${imageIndex * 100}vw, 0, 0)`,
-        }}
-      >
-        {images.map((image: any, i: number) => (
-          <GatsbyImage
-            className={styles.gatsbyImage}
-            key={i}
-            image={getImage(image)}
-            alt="testing"
-            objectFit="contain"
-          />
-        ))}
-      </div>
-      <button
-        type="button"
-        className={styles.previousButton}
-        onClick={() =>
-          setImageIndex((index) => {
-            if (index === 0) {
-              return images.length - 1;
-            }
-            return index - 1;
-          })
-        }
-      >
-        Previous
-      </button>
-      <button
-        type="button"
-        className={styles.nextButton}
-        onClick={() =>
-          setImageIndex((index) => {
-            if (index === images.length - 1) {
-              return 0;
-            }
-            return index + 1;
-          })
-        }
-      >
-        Next
-      </button>
-      <button
-        className={styles.closeButton}
-        type="button"
-        onClick={() => setIsOpen(false)}
-      >
-        Close
-      </button>
-    </div>
-  ) : (
-    <button type="button" onClick={() => setIsOpen(true)}>
-      Open
-    </button>
-  );
+  return <ImageGallery additionalClass={styles.gallery} items={imageItems}/>
 };
 
 export default Gallery;

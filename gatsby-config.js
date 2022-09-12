@@ -25,6 +25,7 @@ module.exports = {
         excerpt_separator: '<!-- excerpt end -->',
       },
     },
+    // Are these plugins necessary if images aren't processed in the build?
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

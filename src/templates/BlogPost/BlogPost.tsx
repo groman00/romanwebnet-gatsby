@@ -15,21 +15,21 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ title }) => (
   </div>
 );
 
-interface Post {
-  frontmatter: {
-    title: string;
-  };
-  excerpt: string;
-  html: string;
-}
+// interface Post {
+//   frontmatter: {
+//     title: string;
+//   };
+//   excerpt: string;
+//   html: string;
+// }
 
 interface BlogPostProps {
-  data: { markdownRemark: Post };
+  data: { markdownRemark: GatsbyTypes.MarkdownRemark };
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
   const post = data.markdownRemark;
-  const { title, images } = post.frontmatter;
+  const { title, images } = post.frontmatter!;
   return (
     <Layout>
       <SEO title={title} description={post.excerpt} />
@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          {images && <Gallery images={images} />}
+          {images && <Gallery files={images} slug={post.fields.slug} />}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>
@@ -49,18 +49,22 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
-        images {
-          childImageSharp {
-            gatsbyImageData(
-              layout: CONSTRAINED
-              # width: 200
-              # placeholder: BLURRED
-              # formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
+        images
+        # {
+        #   childImageSharp {
+        #     gatsbyImageData(
+        #       layout: CONSTRAINED
+        #       # width: 200
+        #       # placeholder: BLURRED
+        #       # formats: [AUTO, WEBP, AVIF]
+        #     )
+        #   }
+        # }
       }
       excerpt
     }
