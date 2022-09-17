@@ -12,7 +12,6 @@ interface Props {
 
 const Gallery: React.FC<Props> = ({ files, slug }) => {
   const path = slug.split('/').slice(-2).join('');
-
   const imageItems = React.useMemo(() =>
     files?.map(file => {
         const imageSrc = `${host}/${path}/${file}`;
@@ -21,8 +20,6 @@ const Gallery: React.FC<Props> = ({ files, slug }) => {
           thumbnail: imageSrc
         }
     }), [files])
-
-  console.log({imageItems});
 
   return <ImageGallery additionalClass={styles.gallery} items={imageItems}/>
 };
