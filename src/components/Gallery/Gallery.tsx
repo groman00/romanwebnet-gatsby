@@ -11,17 +11,15 @@ interface Props {
 }
 
 const Gallery: React.FC<Props> = ({ files, slug }) => {
-  const [imageItems, setImageItems] = useState<ReactImageGalleryItem[]>([])
   const path = slug.split('/').slice(-2).join('');
-
-  useEffect(() => {
-    setImageItems(files?.map(file => {
-      const imageSrc = `${host}/${path}/${file}`;
-      return {
-        original: imageSrc,
-        thumbnail: imageSrc
-      }
-  }))}, [files]);
+  const imageItems = React.useMemo(() =>
+    files?.map(file => {
+        const imageSrc = `${host}/${path}/${file}`;
+        return {
+          original: imageSrc,
+          thumbnail: imageSrc
+        }
+    }), [files])
 
   return <ImageGallery additionalClass={styles.gallery} items={imageItems}/>
 };
