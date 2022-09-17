@@ -1,0 +1,30 @@
+---
+title: 'Taliesin West'
+date: '2022-03-02'
+# categories: ['Recipes']
+status: 'published'
+images:
+  - photo - 1.jpeg
+  - photo - 2.jpeg
+  - photo - 3.jpeg
+  - photo - 4.jpeg
+  - photo - 5.jpeg
+  - photo - 6.jpeg
+  - photo - 7.jpeg
+  - photo - 8.jpeg
+  - photo - 9.jpeg
+  - photo - 10.jpeg
+  - photo - 11.jpeg
+  - photo - 12.jpeg
+  - photo - 13.jpeg
+  - photo - 14.jpeg
+  - photo - 15.jpeg
+  - photo - 16.jpeg
+  - photo - 17.jpeg
+  - photo - 18.jpeg
+  - photo - 19.jpeg
+---
+
+Setting up photo gallery section
+
+<!-- excerpt end -->
