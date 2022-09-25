@@ -1,6 +1,71 @@
 @import '../../scss/helpers/variables';
 @import '../../scss/helpers/mixins';
 
+// Images have 4/3 crop ratio.
+
+$max-height-tablet: 528px;
+$max-height-desktop: 720px;
+$thumbnail-spacing: 4px;
+
 .gallery {
   background-color: $black;
+  position: relative;
+  padding-top: (3 / 4) * 100%;
+  overflow: hidden;
+}
+
+.thumbnail > img {
+  display: block;
+  border: solid $thumbnail-spacing transparent;
+  transition: border-color 0.3s ease-in-out;
+
+  height: 116px;
+  width: 116px;
+
+  @include media-desktop {
+    height: 119px;
+    width: 119px;
+  }
+}
+
+.scroller {
+  margin: $thumbnail-spacing;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.selector {
+  position: absolute;
+  opacity: 0;
+
+  &:checked {
+    + .image {
+      opacity: 1;
+      display: block;
+    }
+    ~ .thumbnail > img {
+      border-color: $gatsby-purple;
+    }
+  }
+}
+
+
+.image {
+  max-width: 100%;
+  vertical-align: top;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  opacity: 0;
+  transform: translate3d(-50%, 0, 0);
+  transition: opacity 0.3s ease-in-out;
+  display: none;
+
+  @include media-tablet {
+    max-height: $max-height-tablet;
+  }
+
+  @include media-desktop {
+    max-height: $max-height-desktop;
+  }
 }

@@ -37,7 +37,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
         <Container>
           <BreadCrumb title={title} />
           <h1 className={styles.title}>{title}</h1>
-          {images && <Gallery files={images} slug={post.fields.slug} />}
+          {images && <Gallery title={title} files={images} slug={post.fields.slug} />}
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </Container>
       </article>

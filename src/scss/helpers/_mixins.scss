@@ -18,14 +18,9 @@
 
 @mixin centered($position: absolute) {
   position:$position;
-  top:50%;   
+  top:50%;
   left:50%;
   transform:translate3d(-50%, -50%, 0);
-}
-
-@mixin blog-container {
-  max-width: 767px;
-  margin: 0 auto;
 }
 
 @mixin container {
@@ -38,14 +33,14 @@
   @include media-tablet-small {
     max-width: $tablet-small-width;
   }
-  
+
   @include media-tablet {
     max-width: $tablet-width;
-    padding-left: $spacer-xxl;    
+    padding-left: $spacer-xxl;
     padding-right: $spacer-xxl;
   }
-  
+
   @include media-desktop {
     max-width: $desktop-width;
-  }  
+  }
 }
