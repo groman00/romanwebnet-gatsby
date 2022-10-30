@@ -61,6 +61,15 @@ export default [
       symbol: 'music',
     },
   },
+  {
+    root: {
+      href: '/photos',
+      title: 'Photos',
+    },
+    icon: {
+      symbol: 'photos',
+    },
+  },
   // {
   //   root: {
   //     href: 'mailto:gregorymichaelroman@gmail.com',

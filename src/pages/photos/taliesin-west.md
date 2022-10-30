@@ -1,7 +1,7 @@
 ---
 title: 'Taliesin West'
 date: '2022-03-02'
-# categories: ['Recipes']
+categories: ['Photos']
 status: 'published'
 images:
   - photo - 1.jpeg
@@ -25,6 +25,6 @@ images:
   - photo - 19.jpeg
 ---
 
-Setting up photo gallery section
+A tour of Frank Lloyd Wright’s home and desert laboratory in Scottsdale, AZ.
 
 <!-- excerpt end -->

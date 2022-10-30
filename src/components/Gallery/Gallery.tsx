@@ -12,7 +12,7 @@ interface Props {
 const Gallery: React.FC<Props> = ({ files, slug, title }) => {
   const path = slug.split('/').slice(-2).join('');
   return (
-    <section className={styles.gallery}>
+    <section id="gallery" className={styles.gallery}>
       <div className={styles.scroller}>
         { files?.map((file, index) => (
           <div className={styles.item}>
@@ -24,9 +24,10 @@ const Gallery: React.FC<Props> = ({ files, slug, title }) => {
               defaultChecked={index === 0}
             />
             <img
+              id={`gallery-image-${index}`}
               className={styles.image}
               src={`${host}/${path}/${file}`}
-              alt={`${title} gallery item ${index + 1}`}
+              alt={`${title} gallery image ${index}`}
               loading="lazy"
             />
             <label
