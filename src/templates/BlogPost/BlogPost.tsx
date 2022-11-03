@@ -10,19 +10,15 @@ interface BreadCrumbProps {
 
 const BreadCrumb: React.FC<BreadCrumbProps> = ({ title, category }) => (
   <div className={styles.breadcrumb}>
-    <a href={`/${category.toLowerCase()}`}>{category}</a>
-    <span className={styles.breadcrumbSpacer}>{'>'}</span>
+    {category && (
+      <>
+        <a href={`/${category.toLowerCase()}`}>{category}</a>
+        <span className={styles.breadcrumbSpacer}>{'>'}</span>
+      </>
+    )}
     <span>{title}</span>
   </div>
 );
-
-// interface Post {
-//   frontmatter: {
-//     title: string;
-//   };
-//   excerpt: string;
-//   html: string;
-// }
 
 interface BlogPostProps {
   data: { markdownRemark: GatsbyTypes.MarkdownRemark };
