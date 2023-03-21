@@ -1,10 +1,14 @@
 import React from 'react';
-import { HomeLayout as Layout, SEO } from '../components';
+import { SEO } from '../components';
+import Header from '../components/Header';
+import { VerticalNavigation } from '../components/Navigation';
 
 const IndexPage: React.FC = () => (
-  <Layout>
-    <SEO title="Home" />
-  </Layout>
+  <>
+    <Header logoTag="h1" />
+    <VerticalNavigation />
+    <main><SEO title="Home" /></main>
+  </>
 );
 
 export default IndexPage;

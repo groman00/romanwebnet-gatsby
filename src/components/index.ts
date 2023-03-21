@@ -6,7 +6,7 @@ import Header from './Header';
 import Heading from './Heading';
 import Icon from './Icon';
 import Image from './Image/image';
-import Layout, { HomeLayout } from './Layout';
+import Layout from './Layout';
 import MusicPlayer from './MusicPlayer';
 import Navigation from './Navigation';
 import Panel from './Panel';
@@ -25,7 +25,6 @@ export {
   Gallery,
   Header,
   Heading,
-  HomeLayout,
   Icon,
   Image,
   Layout,
