@@ -70,13 +70,4 @@ export default [
       symbol: 'photos',
     },
   },
-  // {
-  //   root: {
-  //     href: 'mailto:gregorymichaelroman@gmail.com',
-  //     title: 'Email',
-  //   },
-  //   icon: {
-  //     symbol: 'email',
-  //   }
-  // },
 ];
