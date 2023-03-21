@@ -1,20 +1,14 @@
 import React from 'react';
-import { HomeLayout as Layout, SEO } from '../components';
+import { SEO } from '../components';
+import Header from '../components/Header';
+import { VerticalNavigation } from '../components/Navigation';
 
 const IndexPage: React.FC = () => (
-  <Layout>
-    <SEO title="Home" />
-    {/*
-    https://www.gatsbyjs.org/docs/adding-analytics/
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112401659-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-112401659-1');
-    </script>
-    */}
-  </Layout>
+  <>
+    <Header logoTag="h1" />
+    <VerticalNavigation />
+    <main><SEO title="Home" /></main>
+  </>
 );
 
 export default IndexPage;
