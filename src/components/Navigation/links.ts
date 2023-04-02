@@ -13,7 +13,7 @@ export interface LinkItem {
   icon: IconType;
 }
 
-export default [
+const links: LinkItem[] = [
   {
     root: {
       href: '/about',
@@ -21,26 +21,6 @@ export default [
     },
     icon: {
       symbol: 'about',
-    },
-  },
-  {
-    root: {
-      href: 'https://github.com/groman00',
-      title: 'Github',
-      target: '_blank',
-    },
-    icon: {
-      symbol: 'github',
-    },
-  },
-  {
-    root: {
-      href: 'https://www.linkedin.com/in/gregory-roman-8486485',
-      title: 'LinkedIn',
-      target: '_blank',
-    },
-    icon: {
-      symbol: 'linkedin',
     },
   },
   {
@@ -70,13 +50,38 @@ export default [
       symbol: 'photos',
     },
   },
-  // {
-  //   root: {
-  //     href: 'mailto:gregorymichaelroman@gmail.com',
-  //     title: 'Email',
-  //   },
-  //   icon: {
-  //     symbol: 'email',
-  //   }
-  // },
 ];
+
+export const socialLinks: LinkItem[] = [
+  {
+    root: {
+      href: 'https://github.com/groman00',
+      title: 'Github',
+      target: '_blank',
+    },
+    icon: {
+      symbol: 'github',
+    },
+  },
+  {
+    root: {
+      href: 'https://www.linkedin.com/in/gregory-roman-8486485',
+      title: 'LinkedIn',
+      target: '_blank',
+    },
+    icon: {
+      symbol: 'linkedin',
+    },
+  },
+  {
+    root: {
+      href: 'mailto:gregorymichaelroman@gmail.com',
+      title: 'Email',
+    },
+    icon: {
+      symbol: 'email',
+    }
+  },
+]
+
+export default links;
