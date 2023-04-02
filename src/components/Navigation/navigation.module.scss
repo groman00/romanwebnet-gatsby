@@ -83,3 +83,13 @@ $transparent-black: rgba(0, 0, 0, 0.1);
     }
   }
 }
+
+.social-links {
+  display: flex;
+  justify-content: center;
+
+  > a {
+    padding: $spacer-md;
+    margin: 0 $spacer-sm;
+  }
+}
