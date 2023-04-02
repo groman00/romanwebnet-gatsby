@@ -11,6 +11,7 @@ import React, { PropsWithChildren } from 'react';
 import Header from '../Header';
 import { HorizontalNavigation, VerticalNavigation } from '../Navigation';
 import Footer from '../Footer';
+import * as styles from './layout.module.scss';
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -35,11 +36,11 @@ const DefaultLayout: React.FC<PropsWithChildren> = ({ children }) => (
 );
 
 export const HomeLayout: React.FC<PropsWithChildren> = ({ children }) => (
-  <Layout>
+  <div className={styles.animatedBackground}>
     <Header logoTag="h1" />
     <VerticalNavigation />
     <main>{children}</main>
-  </Layout>
+  </div>
 );
 
 export default DefaultLayout;
