@@ -1,7 +1,7 @@
 ---
 title: 'My First Code Post'
 date: '2023-04-22'
-categories: ['Code Examples']
+categories: ['Code']
 status: 'published'
 ---
 

@@ -18,7 +18,7 @@ const CodePage: React.FC = () => {
         sort: { fields: [frontmatter___date], order: DESC }
         filter: {
           frontmatter: {
-            categories: { in: "Code Examples" }
+            categories: { in: "Code" }
             status: { eq: "published" }
           }
         }
