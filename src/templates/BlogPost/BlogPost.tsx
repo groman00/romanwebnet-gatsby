@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout, Container, SEO, Gallery } from '@components';
+import { Layout, Container, SEO, Gallery, CodeExample } from '@components';
 import * as styles from './blogPost.module.scss';
+import { MDXProvider } from '@mdx-js/react';
 
 interface BreadCrumbProps {
   title: string;
@@ -45,7 +46,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ data, children }) => {
             <Gallery title={title} files={images} slug={post.fields.slug} />
           )}
           {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
-          {children}
+          {/* {children} */}
+          <MDXProvider components={{ CodeExample }}>{children}</MDXProvider>
         </Container>
       </article>
     </Layout>
