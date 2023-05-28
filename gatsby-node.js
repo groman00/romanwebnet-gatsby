@@ -9,7 +9,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
+  if (['MarkdownRemark', 'Mdx'].includes(node.internal.type)) {
     const slug = createFilePath({ node, getNode, basePath: 'pages' });
     createNodeField({
       node,
@@ -19,39 +19,49 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const result = await graphql(`
-    query {
-      postsRemark: allMarkdownRemark(
-        filter: { frontmatter: { status: { eq: "published" } } }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              categories
-              tags
-            }
+const toPostsQuery = (type) => `
+  query {
+    postsRemark: ${type}(
+      filter: { frontmatter: { status: { eq: "published" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            categories
+            tags
+          }
+          internal {
+            contentFilePath
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
-          fieldValue
-        }
+    }
+    tagsGroup: ${type}(limit: 2000) {
+      group(field: frontmatter___tags) {
+        fieldValue
       }
     }
-  `);
+  }
+`
 
-  const posts = result.data.postsRemark.edges;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const remarkResult = await graphql(toPostsQuery('allMarkdownRemark'));
+  const mdxResult = await graphql(toPostsQuery('allMdx'));
+  const posts = [
+    ...remarkResult.data.postsRemark.edges,
+    ...mdxResult.data.postsRemark.edges,
+  ];
+
+  const postTemplate = path.resolve('./src/templates/BlogPost/BlogPost.tsx');
 
   posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve('./src/templates/BlogPost/BlogPost.tsx'),
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
@@ -60,7 +70,10 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const tags = result.data.tagsGroup.group;
+  const tags = [
+    ...remarkResult.data.tagsGroup.group,
+    ...mdxResult.data.tagsGroup.group,
+  ];
 
   tags.forEach((tag) => {
     createPage({
@@ -72,6 +85,42 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+// const postTemplate = path.resolve(`./src/templates/post.jsx`)
+
+// // Rest of createPages API...
+
+// const { data } = await graphql(`
+//   {
+//     allMdx {
+//       nodes {
+//         id
+//         frontmatter {
+//           slug
+//         }
+// // highlight-start
+//         internal {
+//           contentFilePath
+//         }
+// // highlight-end
+//       }
+//     }
+//   }
+// `)
+
+// data.allMdx.nodes.forEach(node => {
+//   actions.createPage({
+//     path: node.frontmatter.slug,
+//     component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`, // highlight-line
+//     context: {
+//       id: node.id,
+//     },
+//   })
+// })
+
+
+
+
 
 // exports.onCreateWebpackConfig = ({
 //   stage,

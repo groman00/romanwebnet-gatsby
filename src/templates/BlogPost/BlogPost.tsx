@@ -24,10 +24,15 @@ interface BlogPostProps {
   data: { markdownRemark: GatsbyTypes.MarkdownRemark };
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
-  const post = data.markdownRemark;
+const BlogPost: React.FC<BlogPostProps> = ({ data, children }) => {
+  // console.log({ props });
+  // return <>'foo'</>;
+  const post = data.mdx;
+
   const { title, images } = post.frontmatter!;
   const [rootCategory] = post.frontmatter?.categories ?? [];
+
+  console.log({ title });
 
   return (
     <Layout>
@@ -39,7 +44,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
           {images && (
             <Gallery title={title} files={images} slug={post.fields.slug} />
           )}
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+          {children}
         </Container>
       </article>
     </Layout>
@@ -48,14 +54,15 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
 
 export const query = graphql`
   query ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      # html
+      # body
       fields {
         slug
       }
       frontmatter {
         title
-        images
+        # images
         categories
         # {
         #   childImageSharp {
