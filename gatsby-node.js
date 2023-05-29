@@ -8,18 +8,16 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+  const { createNodeField,  } = actions;
 
   if (node.internal.type === 'Mdx') {
-    const [rawExcerpt] = node.body.split('{/* excerpt */}')
+    const [rawExcerpt] = node.body.split('{/* excerpt end */}')
     createNodeField({
       name: 'excerpt',
       node,
       value: rawExcerpt.trim(),
-    })
-  }
+    });
 
-  if (['MarkdownRemark', 'Mdx'].includes(node.internal.type)) {
     const slug = createFilePath({ node, getNode, basePath: 'pages' });
     createNodeField({
       node,
@@ -31,7 +29,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 const toPostsQuery = (type) => `
   query {
-    postsRemark: ${type}(
+    postsRemark: allMdx(
       filter: { frontmatter: { status: { eq: "published" } } }
     ) {
       edges {
@@ -49,7 +47,7 @@ const toPostsQuery = (type) => `
         }
       }
     }
-    tagsGroup: ${type}(limit: 2000) {
+    tagsGroup: allMdx(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
       }
@@ -59,14 +57,10 @@ const toPostsQuery = (type) => `
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const remarkResult = await graphql(toPostsQuery('allMarkdownRemark'));
-  const mdxResult = await graphql(toPostsQuery('allMdx'));
-  const posts = [
-    ...remarkResult.data.postsRemark.edges,
-    ...mdxResult.data.postsRemark.edges,
-  ];
-
+  const result = await graphql(toPostsQuery());
+  const posts = result.data.postsRemark.edges;
   const postTemplate = path.resolve('./src/templates/BlogPost/BlogPost.tsx');
+  const tags = result.data.tagsGroup.group;
 
   posts.forEach(({ node }) => {
     createPage({
@@ -79,11 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-
-  const tags = [
-    ...remarkResult.data.tagsGroup.group,
-    ...mdxResult.data.tagsGroup.group,
-  ];
 
   tags.forEach((tag) => {
     createPage({

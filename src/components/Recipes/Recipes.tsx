@@ -16,15 +16,13 @@ export type MarkdownRemark = {
   edges: Record<string, NodeType>[];
 };
 
-const Recipes: React.FC<{ markdownRemark: MarkdownRemark }> = ({
-  markdownRemark,
-}) => (
+const Recipes: React.FC<{ allMdx }> = ({ allMdx }) => (
   <CardList>
-    {markdownRemark.edges.map(({ node }) => (
+    {allMdx.edges.map(({ node }) => (
       <Card
         key={node.id}
         cta="View Recipe"
-        description={node.excerpt}
+        description={node.fields.excerpt}
         link={node.fields.slug}
         title={node.frontmatter.title}
       />

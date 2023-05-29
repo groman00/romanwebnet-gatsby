@@ -12,7 +12,7 @@ import {
 const RecipesPage: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
+      allMdx(
         limit: 2000
         sort: { fields: [frontmatter___date], order: DESC }
         filter: {
@@ -30,9 +30,9 @@ const RecipesPage: React.FC = () => {
               title
               date(formatString: "DD MMMM, YYYY")
             }
-            excerpt
             fields {
               slug
+              excerpt
             }
           }
         }
@@ -45,7 +45,7 @@ const RecipesPage: React.FC = () => {
       <Panel>
         <Container>
           <Heading element="h1" theme="dark" text="Recipes" />
-          <Recipes markdownRemark={data.allMarkdownRemark} />
+          <Recipes allMdx={data.allMdx} />
           <Link to="/tags">All Tags</Link>
         </Container>
       </Panel>

@@ -13,7 +13,7 @@ import {
 const PhotosPage: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.Query>(graphql`
     query {
-      allMarkdownRemark(
+      allMdx(
         limit: 2000
         sort: { fields: [frontmatter___date], order: DESC }
         filter: {
@@ -47,7 +47,7 @@ const PhotosPage: React.FC = () => {
         <Container>
           <Heading element="h1" theme="dark" text="Photos" />
           <CardList>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
+            {data.allMdx.edges.map(({ node }) => (
               <Card
                 key={node.id}
                 cta="View Photos"

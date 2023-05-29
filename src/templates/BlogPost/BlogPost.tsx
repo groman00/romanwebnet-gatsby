@@ -45,14 +45,12 @@ const BlogPost: React.FC<PropsWithChildren & BlogPostProps> = ({
 export const query = graphql`
   query ($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      # html
-      # body
       fields {
         slug
       }
       frontmatter {
         title
-        # images
+        images
         categories
         # {
         #   childImageSharp {
