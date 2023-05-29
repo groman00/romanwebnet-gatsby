@@ -13,7 +13,7 @@ import {
 const CodePage: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.Query>(graphql`
     query {
-      allMarkdownRemark(
+      allMdx(
         limit: 2000
         sort: { fields: [frontmatter___date], order: DESC }
         filter: {
@@ -34,6 +34,7 @@ const CodePage: React.FC = () => {
             excerpt
             fields {
               slug
+              excerpt
             }
           }
         }
@@ -47,11 +48,11 @@ const CodePage: React.FC = () => {
         <Container>
           <Heading element="h1" theme="dark" text="Code" />
           <CardList>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
+            {data.allMdx.edges.map(({ node }) => (
               <Card
                 key={node.id}
                 cta="View Post"
-                description={node.excerpt!}
+                description={node.fields!.excerpt!}
                 link={node.fields!.slug!}
                 title={node.frontmatter!.title!}
               />
