@@ -11,11 +11,20 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-mdx-frontmatter',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'src',
-        path: `${__dirname}/src`,
+        name: 'pages',
+        path: `${__dirname}/src/blog`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/src/content`,
       },
     },
     // Todo: Are these plugins necessary if images aren't processed in the build?
@@ -49,7 +58,5 @@ module.exports = {
         extensions: [],
       },
     },
-    'gatsby-plugin-mdx',
-    'gatsby-plugin-mdx-frontmatter',
   ],
 };
