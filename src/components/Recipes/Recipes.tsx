@@ -6,17 +6,22 @@ type NodeType = {
   excerpt: string;
   fields: {
     slug: string;
+    excerpt: string;
   };
   frontmatter: {
     title: string;
   };
 };
 
-export type MarkdownRemark = {
-  edges: Record<string, NodeType>[];
-};
-
-const Recipes: React.FC<{ allMdx }> = ({ allMdx }) => (
+const Recipes: React.FC<{
+  allMdx: {
+    edges: [
+      {
+        node: NodeType;
+      }
+    ];
+  };
+}> = ({ allMdx }) => (
   <CardList>
     {allMdx.edges.map(({ node }) => (
       <Card

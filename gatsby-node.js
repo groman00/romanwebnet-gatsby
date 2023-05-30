@@ -29,7 +29,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 const toPostsQuery = (type) => `
   query {
-    postsRemark: allMdx(
+    posts: allMdx(
       filter: { frontmatter: { status: { eq: "published" } } }
     ) {
       edges {
@@ -58,7 +58,7 @@ const toPostsQuery = (type) => `
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(toPostsQuery());
-  const posts = result.data.postsRemark.edges;
+  const posts = result.data.posts.edges;
   const postTemplate = path.resolve('./src/templates/BlogPost/BlogPost.tsx');
   const tags = result.data.tagsGroup.group;
 

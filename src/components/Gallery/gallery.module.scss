@@ -10,7 +10,7 @@ $thumbnail-spacing: 4px;
 .gallery {
   background-color: $black;
   position: relative;
-  padding-top: (3 / 4) * 100%;
+  padding-top: calc(3 / 4) * 100%;
   overflow: hidden;
   margin-bottom: $spacer-lg;
 }

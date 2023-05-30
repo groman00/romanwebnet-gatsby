@@ -31,9 +31,9 @@ const PhotosPage: React.FC = () => {
               title
               date(formatString: "DD MMMM, YYYY")
             }
-            excerpt
             fields {
               slug
+              excerpt
             }
           }
         }
@@ -51,7 +51,8 @@ const PhotosPage: React.FC = () => {
               <Card
                 key={node.id}
                 cta="View Photos"
-                description={node.excerpt!}
+                // this
+                description={node.fields!.excerpt!}
                 link={node.fields!.slug!}
                 title={node.frontmatter!.title!}
               />

@@ -18,12 +18,6 @@ module.exports = {
         path: `${__dirname}/src`,
       },
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        excerpt_separator: '<!-- excerpt end -->',
-      },
-    },
     // Todo: Are these plugins necessary if images aren't processed in the build?
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',

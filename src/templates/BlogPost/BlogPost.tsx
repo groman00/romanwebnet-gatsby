@@ -11,16 +11,8 @@ import {
 import * as styles from './blogPost.module.scss';
 import { MDXProvider } from '@mdx-js/react';
 
-interface BlogPostProps {
-  data: { markdownRemark: GatsbyTypes.MarkdownRemark };
-}
-
-const BlogPost: React.FC<PropsWithChildren & BlogPostProps> = ({
-  data,
-  children,
-}) => {
+const BlogPost: React.FC<PropsWithChildren> = ({ data, children }) => {
   const post = data.mdx;
-
   const { title, images } = post.frontmatter!;
   const [rootCategory] = post.frontmatter?.categories ?? [];
 
@@ -34,7 +26,6 @@ const BlogPost: React.FC<PropsWithChildren & BlogPostProps> = ({
           {images && (
             <Gallery title={title} files={images} slug={post.fields.slug} />
           )}
-          {/* <div dangerouslySetInnerHTML={{ __html: post.html }} /> */}
           <MDXProvider components={{ CodeExample }}>{children}</MDXProvider>
         </Container>
       </article>
@@ -52,16 +43,6 @@ export const query = graphql`
         title
         images
         categories
-        # {
-        #   childImageSharp {
-        #     gatsbyImageData(
-        #       layout: CONSTRAINED
-        #       # width: 200
-        #       # placeholder: BLURRED
-        #       # formats: [AUTO, WEBP, AVIF]
-        #     )
-        #   }
-        # }
       }
       excerpt
     }
