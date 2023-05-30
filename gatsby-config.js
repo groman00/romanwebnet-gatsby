@@ -9,23 +9,25 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sass',
-    'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-mdx-frontmatter',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'src',
-        path: `${__dirname}/src`,
+        name: 'pages',
+        path: `${__dirname}/src/blog`,
       },
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        excerpt_separator: '<!-- excerpt end -->',
+        name: 'content',
+        path: `${__dirname}/src/content`,
       },
     },
-    // Are these plugins necessary if images aren't processed in the build?
+    // Todo: Are these plugins necessary if images aren't processed in the build?
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -56,16 +58,5 @@ module.exports = {
         extensions: [],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     google: {
-    //       families: ['Lato:300', 'EB Garamond:600']
-    //     }
-    //   }
-    // },
   ],
 };

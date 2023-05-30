@@ -1,17 +1,10 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import {
-  Panel,
-  Container,
-  Heading,
-  Recipes,
-  SEO,
-  Layout,
-} from '../../components';
+import { Panel, Container, Heading, Recipes, SEO, Layout } from '@components';
 
 const Tag = ({ pageContext, data }) => {
   const { tag } = pageContext;
-  const { totalCount } = data.allMarkdownRemark;
+  const { totalCount } = data.allMdx;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`;
@@ -22,7 +15,7 @@ const Tag = ({ pageContext, data }) => {
       <Panel>
         <Container>
           <Heading element="h1" theme="dark" text={tagHeader} />
-          <Recipes markdownRemark={data.allMarkdownRemark} />
+          <Recipes allMdx={data.allMdx} />
           <Link to="/tags">All Tags</Link>
         </Container>
       </Panel>
@@ -31,8 +24,8 @@ const Tag = ({ pageContext, data }) => {
 };
 
 export const pageQuery = graphql`
-  query($tag: String) {
-    allMarkdownRemark(
+  query ($tag: String) {
+    allMdx(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
@@ -42,6 +35,7 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+            excerpt
           }
           excerpt
           frontmatter {

@@ -1,31 +1,18 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { graphql } from 'gatsby';
-import { Layout, Container, SEO, Gallery } from '@components';
+import {
+  Layout,
+  Container,
+  SEO,
+  Gallery,
+  CodeExample,
+  BreadCrumb,
+} from '@components';
 import * as styles from './blogPost.module.scss';
+import { MDXProvider } from '@mdx-js/react';
 
-interface BreadCrumbProps {
-  title: string;
-  category: string;
-}
-
-const BreadCrumb: React.FC<BreadCrumbProps> = ({ title, category }) => (
-  <div className={styles.breadcrumb}>
-    {category && (
-      <>
-        <a href={`/${category.toLowerCase()}`}>{category}</a>
-        <span className={styles.breadcrumbSpacer}>{'>'}</span>
-      </>
-    )}
-    <span>{title}</span>
-  </div>
-);
-
-interface BlogPostProps {
-  data: { markdownRemark: GatsbyTypes.MarkdownRemark };
-}
-
-const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
-  const post = data.markdownRemark;
+const BlogPost: React.FC<PropsWithChildren> = ({ data, children }) => {
+  const post = data.mdx;
   const { title, images } = post.frontmatter!;
   const [rootCategory] = post.frontmatter?.categories ?? [];
 
@@ -39,7 +26,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
           {images && (
             <Gallery title={title} files={images} slug={post.fields.slug} />
           )}
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <MDXProvider components={{ CodeExample }}>{children}</MDXProvider>
         </Container>
       </article>
     </Layout>
@@ -48,8 +35,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ data }) => {
 
 export const query = graphql`
   query ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
       fields {
         slug
       }
@@ -57,16 +43,6 @@ export const query = graphql`
         title
         images
         categories
-        # {
-        #   childImageSharp {
-        #     gatsbyImageData(
-        #       layout: CONSTRAINED
-        #       # width: 200
-        #       # placeholder: BLURRED
-        #       # formats: [AUTO, WEBP, AVIF]
-        #     )
-        #   }
-        # }
       }
       excerpt
     }

@@ -15,6 +15,8 @@ import Repos from './Repos';
 import Resume from './Resume';
 import SEO from './SEO';
 import Gallery from './Gallery';
+import CodeExample from './CodeExample';
+import BreadCrumb from './BreadCrumb';
 
 export {
   BusinessCard,
@@ -36,4 +38,6 @@ export {
   Repos,
   Resume,
   SEO,
+  CodeExample,
+  BreadCrumb
 };

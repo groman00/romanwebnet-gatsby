@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as styles from './gallery.module.scss';
 
 const host = 'https://d2src2azjjzz54.cloudfront.net/static-images';

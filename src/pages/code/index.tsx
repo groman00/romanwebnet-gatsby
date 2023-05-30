@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   Layout,
   SEO,
@@ -10,7 +10,7 @@ import {
   Card,
 } from '../../components';
 
-const PhotosPage: React.FC = () => {
+const CodePage: React.FC = () => {
   const data = useStaticQuery<GatsbyTypes.Query>(graphql`
     query {
       allMdx(
@@ -18,7 +18,7 @@ const PhotosPage: React.FC = () => {
         sort: { fields: [frontmatter___date], order: DESC }
         filter: {
           frontmatter: {
-            categories: { in: "Photos" }
+            categories: { in: "Code" }
             status: { eq: "published" }
           }
         }
@@ -31,6 +31,7 @@ const PhotosPage: React.FC = () => {
               title
               date(formatString: "DD MMMM, YYYY")
             }
+            excerpt
             fields {
               slug
               excerpt
@@ -42,16 +43,15 @@ const PhotosPage: React.FC = () => {
   `);
   return (
     <Layout>
-      <SEO title="Photos" />
+      <SEO title="Code Examples" />
       <Panel>
         <Container>
-          <Heading element="h1" theme="dark" text="Photos" />
+          <Heading element="h1" theme="dark" text="Code" />
           <CardList>
             {data.allMdx.edges.map(({ node }) => (
               <Card
                 key={node.id}
-                cta="View Photos"
-                // this
+                cta="View Post"
                 description={node.fields!.excerpt!}
                 link={node.fields!.slug!}
                 title={node.frontmatter!.title!}
@@ -64,4 +64,4 @@ const PhotosPage: React.FC = () => {
   );
 };
 
-export default PhotosPage;
+export default CodePage;

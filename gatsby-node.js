@@ -8,8 +8,16 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
+  const { createNodeField,  } = actions;
+
+  if (node.internal.type === 'Mdx') {
+    const [rawExcerpt] = node.body.split('{/* excerpt end */}')
+    createNodeField({
+      name: 'excerpt',
+      node,
+      value: rawExcerpt.trim(),
+    });
+
     const slug = createFilePath({ node, getNode, basePath: 'pages' });
     createNodeField({
       node,
@@ -19,39 +27,45 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-  const result = await graphql(`
-    query {
-      postsRemark: allMarkdownRemark(
-        filter: { frontmatter: { status: { eq: "published" } } }
-      ) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              categories
-              tags
-            }
+const toPostsQuery = (type) => `
+  query {
+    posts: allMdx(
+      filter: { frontmatter: { status: { eq: "published" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            categories
+            tags
+          }
+          internal {
+            contentFilePath
           }
         }
       }
-      tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
-          fieldValue
-        }
+    }
+    tagsGroup: allMdx(limit: 2000) {
+      group(field: frontmatter___tags) {
+        fieldValue
       }
     }
-  `);
+  }
+`
 
-  const posts = result.data.postsRemark.edges;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const result = await graphql(toPostsQuery());
+  const posts = result.data.posts.edges;
+  const postTemplate = path.resolve('./src/templates/BlogPost/BlogPost.tsx');
+  const tags = result.data.tagsGroup.group;
 
   posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve('./src/templates/BlogPost/BlogPost.tsx'),
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
@@ -59,8 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-
-  const tags = result.data.tagsGroup.group;
 
   tags.forEach((tag) => {
     createPage({
@@ -72,30 +84,3 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
-
-// exports.onCreateWebpackConfig = ({
-//   stage,
-//   rules,
-//   loaders,
-//   plugins,
-//   actions,
-//   getConfig,
-// }) => {
-//   const config = getConfig();
-
-//   // actions.replaceWebpackConfig(config)
-
-//   if (process.env.NODE_ENV === 'development') {
-//     console.log('=====WEBPACK=====', config.plugins[0].constructor.name);
-//     console.log(process.env.NODE_ENV);
-//     // let IgnorePlugin = config.plugins.find(
-//     //   (plugin) => plugin.constructor.name === 'IgnorePlugin'
-//     // );
-
-//     // const fastRefresh = plugins.fastRefresh();
-//     // fastRefresh.options.exclude = [/node_modules/i, /__generated__/i];
-//     actions.setWebpackConfig({
-//       plugins: config.plugins,
-//     });
-//   }
-// };
