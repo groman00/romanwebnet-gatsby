@@ -10,6 +10,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://romanwebnet.com`,
+      },
+    },
     'gatsby-transformer-yaml',
     'gatsby-plugin-mdx',
     'gatsby-plugin-mdx-frontmatter',
