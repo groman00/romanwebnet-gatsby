@@ -27,7 +27,7 @@ exports.onPreRenderHTML = ({
     if (component.key === 'commons.css') {
       return true;
     }
-    if (['meta', 'style', 'title'].indexOf(component.type) > -1) {
+    if (['meta', 'style', 'title', 'link'].indexOf(component.type) > -1) {
       return true;
     }
     return false;
