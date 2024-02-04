@@ -22,12 +22,14 @@ const Link: React.FC<PropsWithChildren<LinkItem>> = ({
 export const VerticalNavigation: React.FC = () => (
   <Navigation className={styles.verticalNav}>
     <div className={styles.verticalNavLinks}>
-      {links.map((link) => (
-        <Link key={link.icon.symbol} {...link}>
-          <span>{link.root.title}</span>
-          <Icon className={styles.chevron} symbol="chevron" />
-        </Link>
-      ))}
+      <div className={styles.navLinks}>
+        {links.map((link) => (
+          <Link key={link.icon.symbol} {...link}>
+            <span>{link.root.title}</span>
+            <Icon className={styles.chevron} symbol="chevron" />
+          </Link>
+        ))}
+      </div>
       <div className={styles.socialLinks}>
         {socialLinks.map((link) => (
           <a rel="noopener" {...link.root}>

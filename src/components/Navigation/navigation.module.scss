@@ -12,15 +12,15 @@ $transparent-black: rgba(0, 0, 0, 0.1);
   border: solid 1px $transparent-black;
   border-radius: 5px;
   transition: all $transition-speed-normal ease-in-out;
-  padding: $spacer-md;
-  background-color: $white;
+  padding: $spacer-md $spacer-lg;
+  background-color: $white-transparent;
 
   @include media-tablet {
     padding: $spacer-lg;
   }
 
   &:hover {
-    background-color: $gray-dark;
+    background-color: $gray-dark-transparent;
     color: $white;
   }
 
@@ -45,15 +45,16 @@ $transparent-black: rgba(0, 0, 0, 0.1);
 }
 
 .vertical-nav {
-  @include container;
-
-  align-items: center;
-  height: calc(100% - #{$vertical-nav-height});
+  width: 100%
 }
 
 .vertical-nav-links {
   flex: 1;
   padding: 0 $spacer-lg;
+
+  .nav-links {
+    padding-bottom: $spacer-lg;
+  }
 
   .link {
     display: flex;
@@ -64,10 +65,6 @@ $transparent-black: rgba(0, 0, 0, 0.1);
     margin-right: auto;
     width: 100%;
     max-width: 700px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
 
     > svg:first-child {
       margin-right: $spacer-xl;

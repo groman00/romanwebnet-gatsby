@@ -35,10 +35,19 @@ const DefaultLayout: React.FC<PropsWithChildren> = ({ children }) => (
   </Layout>
 );
 
+const Avatar = () => (
+  <div className={styles.avatar}>
+    <img src="https://avatars.githubusercontent.com/u/1498341?v=4" />
+  </div>
+);
+
 export const HomeLayout: React.FC<PropsWithChildren> = ({ children }) => (
   <div className={styles.animatedBackground}>
     <Header logoTag="h1" />
-    <VerticalNavigation />
+    <div className={styles.homeBody}>
+      <Avatar />
+      <VerticalNavigation />
+    </div>
     <main>{children}</main>
   </div>
 );

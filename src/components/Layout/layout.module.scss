@@ -1,5 +1,8 @@
+@import '../../scss/helpers/variables';
+@import '../../scss/helpers/mixins';
+
 .animated-background {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(
     253deg,
     rgba(12, 200, 152, .25),
@@ -45,5 +48,38 @@
   }
   100% {
     background-position: 0% 50%
+  }
+}
+
+.home-body {
+  @include container;
+
+  padding-top: $spacer-xxxl;
+  padding-bottom: $spacer-xxxl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - #{$vertical-nav-height});
+  min-height: calc(100vh - #{$vertical-nav-height});
+}
+
+.avatar {
+  height: 125px;
+  width: 125px;
+  margin-bottom: $spacer-xxl;
+  background: $white-transparent;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  overflow: hidden;
+  border: solid 4px $white-transparent;
+
+  > img {
+    height: 100%;
+    width: 100%;
   }
 }
