@@ -23,10 +23,12 @@ const BlogPost: React.FC<PropsWithChildren> = ({ data, children }) => {
         <Container>
           <BreadCrumb title={title} category={rootCategory} />
           <h1 className={styles.title}>{title}</h1>
+          {/* <div className={styles.content}> */}
           {images && (
             <Gallery title={title} files={images} slug={post.fields.slug} />
           )}
           <MDXProvider components={{ CodeExample }}>{children}</MDXProvider>
+          {/* </div> */}
         </Container>
       </article>
     </Layout>

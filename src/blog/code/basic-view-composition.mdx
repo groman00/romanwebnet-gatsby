@@ -6,10 +6,27 @@ status: 'published'
 tags: ['Code']
 ---
 
-An example project, breaking down a complex view into small composable ui.
+{/* An example project, breaking down a complex view into small composable ui. */}
+Establish composition patterns for improved component scaling, flexibility and cleaner code.
 
 {/* excerpt end */}
 
-Lorem Ipsum dolor ist amet.
+When building pages or complex components in React, usually one of our goals is to create small, re-usable components so that we don't need to duplicate code.  Having a library of page agnostic components is great, but what happens when a component needs to differ depending on what page we're on?  What if the component needs to present itself differently depending on which data model is passed in?  What do we do when we're testing a new variation with a feature toggle?
 
-<CodeExample name="epic-haze-3237d0" module="/src/original/Employees.tsx" />
+Sure, we can introduce boolean props and drill them down to where the logic needs to be implemented.  Or we could add a custom hook at the component level that figures which page we're on or if a feature should be enabled.  How about conditionals scattered throughout our component library, thus making all components aware of our various business use cases?
+
+How would this code look at scale?  How difficult would it be to write tests?  Would a new developer feel confident making changes to a component on one page, without feeling like they will break another page?
+
+Let's look at how composition can help keep our component library clean and de-coupled, while giving us the flexibility build pages and variations in a straightforward manner.
+
+## Use Case 1
+
+Management requested a new web page that lists all of their employees, with some high level employee details.  Our employee data is shaped like the following:
+
+<CodeExample name="epic-haze-3237d0" module="/src/original/use-case-1/types.ts" view="editor" height={400}/>
+
+{/* <code>
+const foo = "bar";
+</code> */}
+
+{/* <CodeExample name="epic-haze-3237d0" module="/src/original/Employees.tsx" /> */}

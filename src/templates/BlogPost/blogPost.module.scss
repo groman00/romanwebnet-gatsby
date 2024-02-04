@@ -5,8 +5,8 @@
   h2 {
     margin-top: 20px;
     margin-bottom: 20px;
-    border-top: solid 1px $gray-lighter;
-    padding-top: 20px;
+    // border-top: solid 1px $gray-lighter;
+    // padding-top: 20px;
   }
 
   h3 {
@@ -35,6 +35,12 @@
       margin-bottom: 20px;
     }
   }
+}
+
+.content {
+  background-color: $white;
+  padding: 0.25rem 1em;
+  box-shadow: 0 0 15px rgba(0,0,0,.1);
 }
 
 .title {
