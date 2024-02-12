@@ -17,14 +17,19 @@
 }
 
 .skills {
-  @include media-tablet {
+  // @include media-tablet {
     display: flex;
-    justify-content: space-between;
-  }  
+    // justify-content: space-between;
+    flex-direction: column;
+  // }
 }
 
-.skills-column {
-  margin-bottom: $spacer-xl;
+.skills-row {
+  margin-bottom: $spacer-xxxl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .experience {
@@ -56,7 +61,7 @@
 .experience-item-right {
   font-style: italic;
   color: $gray-medium;
-  
+
   @include media-tablet {
     min-width: 20%;
     text-align: right;

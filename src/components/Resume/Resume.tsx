@@ -38,66 +38,41 @@ const Resume: React.FC = () => {
         <Heading element="h1" text="About" />
         <p className={styles.bio}>
           Hello, my name is Greg Roman and I&#39;m a software engineer based in
-          Jersey City, NJ. I have years of experience building modern, high
-          performing websites and applications for nationally recognized brands.
-          If you are looking for a new website or app for your business, please
-          contact me at{' '}
+          Jersey City, NJ. I have experience building modern, high performing
+          websites and applications for nationally recognized brands. If you are
+          looking for a new website or app for your business, please contact me
+          at{' '}
           <a title="Email" href="mailto:gregorymichaelroman@gmail.com">
             gregorymichaelroman@gmail.com
-          </a>{' '}
-          or follow me on Twitter{' '}
-          <a
-            href="https://twitter.com/romanwebnet"
-            title="Twitter"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @romanwebnet
           </a>
           .
         </p>
         <Heading element="h2" text="Skills" />
         <div className={`${styles.skills}`}>
-          <div className={`${styles.skillsColumn}`}>
+          <div className={`${styles.skillsRow}`}>
             <h3 className="font-bold">Languages</h3>
-            <ul>
-              <li>JavaScript / ES5 / ES6</li>
-              <li>CSS / Sass / Less</li>
-              <li>HTML</li>
-              <li>PHP</li>
-              <li>BrightScript</li>
-              <li>Python</li>
-            </ul>
+            <p>Javascript / Typescript, Python, Kotlin, PHP, HTML, CSS</p>
           </div>
-          <div className="column">
-            <h3 className="font-bold">Frameworks</h3>
-            <ul>
-              <li>React / React Native</li>
-              <li>Vue</li>
-              <li>AdonisJS</li>
-              <li>Laravel</li>
-              <li>Material UI</li>
-              <li>Bootstrap</li>
-            </ul>
+          <div className={`${styles.skillsRow}`}>
+            <h3 className="font-bold">Front-End</h3>
+            <p>
+              React, Redux / Redux Saga, Webpack, Styled Components, Storybook,
+              Sass, XState, Vue, Material UI, Bootstrap, A11y, React Testing
+              Library, Design Systems
+            </p>
           </div>
-          <div className="column">
-            <h3 className="font-bold">Tools</h3>
-            <ul>
-              <li>Git</li>
-              <li>npm / yarn</li>
-              <li>Webpack / Gulp / Grunt</li>
-              <li>GraphQL</li>
-              <li>Redux / Vuex</li>
-            </ul>
+          <div className={`${styles.skillsRow}`}>
+            <h3 className="font-bold">Full-Stack</h3>
+            Node, GraphQL / Apollo, REST, ESLint, Docker, K8s, Domain Driven
+            Design
           </div>
-          <div className="column">
+          <div className={`${styles.skillsRow}`}>
+            <h3 className="font-bold">Database</h3>
+            MySQL, PostgreSQL, MongoDB, DynamoDB
+          </div>
+          <div className={`${styles.skillsRow}`}>
             <h3 className="font-bold">Design</h3>
-            <ul>
-              <li>Sketch</li>
-              <li>Photoshop</li>
-              <li>After Effects</li>
-              <li>Illustrator</li>
-            </ul>
+            Sketch, Photoshop, After, Effects, Illustrator
           </div>
         </div>
         <Heading element="h2" text={resumeTitle} />
