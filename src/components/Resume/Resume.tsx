@@ -72,7 +72,7 @@ const Resume: React.FC = () => {
           </div>
           <div className={`${styles.skillsRow}`}>
             <h3 className="font-bold">Design</h3>
-            Sketch, Photoshop, After, Effects, Illustrator
+            Sketch, Photoshop, After Effects, Illustrator
           </div>
         </div>
         <Heading element="h2" text={resumeTitle} />
