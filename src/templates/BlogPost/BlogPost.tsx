@@ -20,7 +20,7 @@ const BlogPost: React.FC<PropsWithChildren> = ({ data, children }) => {
     <Layout>
       <SEO title={title} description={post.excerpt} />
       <article className={styles.article}>
-        <Container>
+        <Container className="bg-white">
           <BreadCrumb title={title} category={rootCategory} />
           <h1 className={styles.title}>{title}</h1>
           {images && (

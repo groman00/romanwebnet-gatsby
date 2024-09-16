@@ -13,7 +13,7 @@ import { HorizontalNavigation, VerticalNavigation } from '../Navigation';
 import Footer from '../Footer';
 import * as styles from './layout.module.scss';
 
-const Layout: React.FC<PropsWithChildren> = ({ children }) => {
+// const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -23,16 +23,16 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   //     }
   //   }
   // `)
-  return <>{children}</>;
-};
+  // return <>{children}</>;
+// };
 
 const DefaultLayout: React.FC<PropsWithChildren> = ({ children }) => (
-  <Layout>
+  <div className={styles.animatedBackground}>
     <Header />
-    <main>{children}</main>
-    <HorizontalNavigation />
+      <main>{children}</main>
+      <HorizontalNavigation />
     <Footer />
-  </Layout>
+  </div>
 );
 
 const Avatar = () => (

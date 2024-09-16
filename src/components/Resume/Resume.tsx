@@ -33,8 +33,8 @@ const Resume: React.FC = () => {
     }
   `);
   return (
-    <Panel theme="white">
-      <Container>
+    <Panel>
+      <Container className="bg-white">
         <Heading element="h1" text="About" />
         <p className={styles.bio}>
           Hello, my name is Greg Roman and I&#39;m a software engineer based in
