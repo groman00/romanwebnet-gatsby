@@ -20,7 +20,7 @@ const Link: React.FC<PropsWithChildren<LinkItem>> = ({
 );
 
 export const VerticalNavigation: React.FC = () => (
-  <Navigation className={styles.verticalNav}>
+  <Navigation className={`${styles.verticalNav} bounceInLeft`}>
     <div className={styles.verticalNavLinks}>
       <div className={styles.navLinks}>
         {links.map((link) => (
