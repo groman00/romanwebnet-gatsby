@@ -8,6 +8,8 @@
   background-color: $black;
   height: $vertical-nav-height;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .logo-text {

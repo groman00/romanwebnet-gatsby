@@ -66,7 +66,7 @@
   animation-delay:1s;
 }
 
-@keyframes bounceInUp {
+@keyframes bounceInDown {
   from,
   60%,
   75%,
@@ -75,22 +75,22 @@
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  from {
+  0% {
     opacity: 0;
-    transform: translate3d(0, 3000px, 0) scaleY(5);
+    transform: translate3d(0, -3000px, 0) scaleY(3);
   }
 
   60% {
     opacity: 1;
-    transform: translate3d(0, -20px, 0) scaleY(0.9);
+    transform: translate3d(0, 25px, 0) scaleY(0.9);
   }
 
   75% {
-    transform: translate3d(0, 10px, 0) scaleY(0.95);
+    transform: translate3d(0, -10px, 0) scaleY(0.95);
   }
 
   90% {
-    transform: translate3d(0, -5px, 0) scaleY(0.985);
+    transform: translate3d(0, 5px, 0) scaleY(0.985);
   }
 
   to {
@@ -98,9 +98,9 @@
   }
 }
 
-.bounceInUp {
+.bounceInDown {
+  animation-name: bounceInDown;
   display: block;
-  animation-name: bounceInUp;
   animation-duration: 1000ms;
 }
 
@@ -139,5 +139,21 @@
 .bounceInLeft {
   display: block;
   animation-name: bounceInLeft;
-  animation-duration: 1000ms;
+  animation-duration: 2000ms;
+}
+
+.bounceInLeft_delay_300 {
+  animation-delay: 300ms;
+}
+
+.bounceInLeft_delay_600 {
+  animation-delay: 600ms;
+}
+
+.bounceInLeft_delay_900 {
+  animation-delay: 900ms;
+}
+
+.bounceInLeft_delay_1200 {
+  animation-delay: 1200ms;
 }
