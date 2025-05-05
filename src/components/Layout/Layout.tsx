@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { PropsWithChildren, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { PropsWithChildren } from 'react';
 // import { useStaticQuery, graphql } from "gatsby"
 
 import Header from '../Header';
@@ -36,7 +36,7 @@ const DefaultLayout: React.FC<PropsWithChildren> = ({ children }) => (
 );
 
 const Avatar = () => (
-  <div className={`${styles.avatar} bounceInUp`}>
+  <div className={styles.avatar}>
     <img src="https://avatars.githubusercontent.com/u/1498341?v=4" />
   </div>
 );
