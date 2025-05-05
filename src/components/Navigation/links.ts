@@ -11,7 +11,6 @@ interface IconType {
 export interface LinkItem {
   root: RootType;
   icon: IconType;
-  index?: number;
 }
 
 const links: LinkItem[] = [

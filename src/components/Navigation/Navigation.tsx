@@ -1,4 +1,4 @@
-import React, { ReactHTMLElement, PropsWithChildren, useEffect, useRef } from 'react';
+import React, { PropsWithChildren } from 'react';
 import * as styles from './navigation.module.scss';
 import Icon from '../Icon';
 import links, { LinkItem, socialLinks } from './links';
@@ -12,39 +12,19 @@ const Link: React.FC<PropsWithChildren<LinkItem>> = ({
   children,
   icon,
   root,
-  index = 0,
-}) => {
-  const el = useRef<HTMLAnchorElement>(null);
-  const delay = 300 * (index + 1) ;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      el.current?.removeAttribute('style');
-      clearInterval(interval);
-    }, delay)
-  }, [])
-
-  return (
-    <a
-      ref={el}
-      className={`${styles.link} bounceInLeft bounceInLeft_delay_${delay}`} {...root}
-      style={{
-        opacity: 0,
-        transform: 'translate3d(-3000px, 0, 0)',
-      }}
-    >
-      <Icon {...icon} />
-      {children}
-    </a>
-  );
-}
+}) => (
+  <a className={styles.link} {...root}>
+    <Icon {...icon} />
+    {children}
+  </a>
+);
 
 export const VerticalNavigation: React.FC = () => (
-  <Navigation className={styles.verticalNav}>
+  <Navigation className={`${styles.verticalNav} bounceInLeft`}>
     <div className={styles.verticalNavLinks}>
       <div className={styles.navLinks}>
-        {links.map((link, index) => (
-          <Link key={link.icon.symbol} {...link} index={index}>
+        {links.map((link) => (
+          <Link key={link.icon.symbol} {...link}>
             <span>{link.root.title}</span>
             <Icon className={styles.chevron} symbol="chevron" />
           </Link>
