@@ -17,7 +17,7 @@ items:
     title: Vue Keyboard
     description: Virtual keyboard using Vue js and the Web Audio API.
     tags: Javascript, Vue, Web Audio API
-  # - slug: roku-remote
-  #   title: Roku Remote
-  #   description: A web version of the Roku® remote control.
-  #   tags: Javascript, Node, Express, Socket.io
+  - slug: roku-remote
+    title: Roku Remote
+    description: A web version of the Roku® remote control.
+    tags: Javascript, Node, Express, Socket.io

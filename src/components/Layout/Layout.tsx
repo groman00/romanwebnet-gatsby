@@ -36,7 +36,7 @@ const DefaultLayout: React.FC<PropsWithChildren> = ({ children }) => (
 );
 
 const Avatar = () => (
-  <div className={`${styles.avatar} bounceInDown`}>
+  <div className={`${styles.avatar} bounceInUp`}>
     <img src="https://avatars.githubusercontent.com/u/1498341?v=4" />
   </div>
 );
