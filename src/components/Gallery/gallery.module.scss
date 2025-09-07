@@ -3,9 +3,9 @@
 
 // Images have 4/3 crop ratio.
 
-$max-height-tablet: 528px;
-$max-height-desktop: 720px;
-$thumbnail-spacing: 4px;
+$max-height-tablet: 444px;
+$max-height-desktop: 528px;
+$thumbnail-spacing: 2px;
 
 .gallery {
   background-color: $black;
@@ -20,19 +20,24 @@ $thumbnail-spacing: 4px;
   border: solid $thumbnail-spacing transparent;
   transition: border-color 0.3s ease-in-out;
 
-  height: 116px;
-  width: 116px;
+  // height: 116px;
+  // width: 116px;
 
-  @include media-desktop {
-    height: 119px;
-    width: 119px;
-  }
+  // @include media-desktop {
+  //   height: 119px;
+  //   width: 119px;
+  // }
+  width: 100%;
 }
 
 .scroller {
   margin: $thumbnail-spacing;
   display: flex;
   flex-wrap: wrap;
+
+  > div {
+    max-width: 20%;
+  }
 }
 
 .selector {
