@@ -37,7 +37,7 @@ const DefaultLayout: React.FC<PropsWithChildren> = ({ children }) => (
 
 const Avatar = () => (
   <div className={styles.avatar}>
-    <img src="https://avatars.githubusercontent.com/u/1498341?v=4" />
+    <img src="https://avatars.githubusercontent.com/u/1498341?v=4" alt="Greg Roman profile picture." />
   </div>
 );
 
